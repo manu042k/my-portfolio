@@ -7,3 +7,58 @@
   object-fit: cover; /* Ensures the image covers the entire circular area */
   margin-bottom: 1rem; /* Adds space between the image and text */
 }
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.social-icon {
+  text-decoration: none;
+  color: var(--color-black); /* Change to your preferred color */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; /* Start hidden */
+  animation: bounceIn 1s ease-out forwards; /* Increased duration */
+  animation-delay: calc(0.2s * var(--i)); /* Stagger animation for each icon */
+}
+
+.social-icon i {
+  font-size: 40px; /* Adjust icon size */
+  margin-bottom: 8px; /* Space between icon and text */
+}
+
+.social-icon p {
+  margin: 0;
+  font-size: 16px; /* Adjust text size */
+  transition: opacity 0.3s ease;
+}
+
+/* Hover animation */
+.social-icon:hover {
+  color: var(--color-dark-grey); /* Change to your preferred hover color */
+  transform: scale(1.1); /* Slightly zoom in the icon */
+}
+
+.social-icon:hover i {
+  transform: rotate(360deg); /* Rotate the icon */
+}
+
+.social-icon:hover p {
+  opacity: 0.8; /* Slightly fade out the text */
+}
