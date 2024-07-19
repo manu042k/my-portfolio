@@ -1,0 +1,9 @@
+.rounded-image {
+  width: 20vw; /* Relative width based on viewport width */
+  height: 20vw; /* Relative height based on viewport width (to maintain aspect ratio) */
+  max-width: 150px; /* Max width to prevent it from growing too large */
+  max-height: 150px; /* Max height to prevent it from growing too large */
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover; /* Ensures the image covers the entire circular area */
+  margin-bottom: 1rem; /* Adds space between the image and text */
+}

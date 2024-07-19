@@ -1,0 +1,16 @@
+<!-- Projects Section -->
+<div id="skills" class="container">
+  <h2 class="section-title">Skills</h2>
+  <div class="container" style="padding-left: 5%">
+    <div class="row">
+      <div
+        class="col-6 col-md-2 grid-item"
+        *ngFor="let skill of skills"
+        [ngStyle]="{ 'animation-delay': skill.delay + 's' }"
+      >
+        <img [src]="skill.image" [alt]="skill.name" />
+        <span>{{ skill.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>

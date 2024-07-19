@@ -1,0 +1,21 @@
+<!-- projects.component.html -->
+<div class="container">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="projects-container">
+    <button class="scroll-btn left" (click)="scrollLeft()">&#9664;</button>
+    <div class="projects-section">
+      <div class="card-wrapper" #cardWrapper>
+        <!-- Project Card -->
+        <div class="card" *ngFor="let project of projects">
+          <img [src]="project.image" alt="project" />
+          <div class="card-body">
+            <h5 class="card-title">{{ project.title }}</h5>
+            <p class="card-text">{{ project.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight()">&#9654;</button>
+  </div>
+</div>

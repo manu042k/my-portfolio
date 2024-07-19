@@ -1,0 +1,30 @@
+.navbar {
+  background-color: var(--color-grey);
+}
+.navbar-brand {
+  color: var(--color-text-primary);
+}
+.nav-item {
+  margin: 0 1rem;
+}
+.nav-link {
+  color: var(--color-black);
+  padding: 0.5rem 1rem;
+  border-radius: 5rem; /* Adjust the radius as needed */
+}
+.custom-toggler .navbar-toggler-icon {
+  display: none;
+}
+.custom-toggler .fa-bars {
+  color: var(--color-black);
+}
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+  background-color: var(--color-medium-grey);
+  color: var(--color-white);
+  outline: none; /* Remove outline for focus and active states */
+}
+.black-color {
+  color: var(--color-black);
+}
