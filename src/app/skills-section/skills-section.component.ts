@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './skills-section.component.html',
   styleUrl: './skills-section.component.scss',
 })
-export class SkillsSectionComponent {
+export class SkillsSectionComponent implements OnInit {
   skills: any = [
     { name: 'C', image: './../../assets/c.png' },
     { name: 'C#', image: './../../assets/ch.png' },
@@ -40,9 +40,11 @@ export class SkillsSectionComponent {
     this.addAnimationDelays();
   }
 
+
   addAnimationDelays() {
     this.skills.forEach((skill: { [x: string]: number; }) => {
       skill['delay'] = Math.random() * 2; // Delay between 0 and 2 seconds
     });
+
   }
 }

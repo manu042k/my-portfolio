@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavigationService } from '../service/navigation.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,4 +9,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss',
 })
-export class NavBarComponent {}
+export class NavBarComponent {
+
+
+  navigationService = inject(NavigationService)
+
+  navigateTo(section: string) {
+    this.navigationService.scrollToSection(section);
+
+  }
+}
