@@ -10,4 +10,5 @@ import { Component } from '@angular/core';
 export class ContactComponent {
   email: string = "manu042k@gmail.com";
   address: string = "Riverside,CA, USA";
+  linkedin: string = "manojm042k";
 }

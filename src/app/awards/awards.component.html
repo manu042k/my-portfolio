@@ -1,1 +1,28 @@
-<p>awards works!</p>
+<div id="recognition" class="container">
+  <h2 class="section-title">Recognition</h2>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-4" *ngFor="let award of awards">
+      <div class="flashcard">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <i [class]="award.icon"></i>
+            <h3>{{ award.title }}</h3>
+          </div>
+          <div class="flashcard-back">
+            <p>{{ award.details }}</p>
+            <a
+              *ngIf="award.link"
+              [href]="award.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="award-link"
+            >
+              <i class="fas fa-link"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>
