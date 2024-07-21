@@ -9,17 +9,23 @@ export class TypingDirective implements OnInit, OnDestroy {
   private typedText: string = ''; // Will hold the text that appears as if typed out
   private currentIndex: number = 0;
   private typingInterval: any;
+  private resetTimeout: any;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit(): void {
-    this.typingInterval = setInterval(() => {
-      this.typeNextLetter();
-    }, 100); // Adjust typing speed (milliseconds per letter)
+    this.startTyping();
   }
 
   ngOnDestroy(): void {
     clearInterval(this.typingInterval);
+    clearTimeout(this.resetTimeout);
+  }
+
+  startTyping(): void {
+    this.typingInterval = setInterval(() => {
+      this.typeNextLetter();
+    }, 100); // Adjust typing speed (milliseconds per letter)
   }
 
   typeNextLetter() {
@@ -29,6 +35,15 @@ export class TypingDirective implements OnInit, OnDestroy {
       this.renderer.setProperty(this.el.nativeElement, 'innerText', this.typedText);
     } else {
       clearInterval(this.typingInterval); // Stop typing when finished
+      this.resetTimeout = setTimeout(() => {
+        this.resetTypingEffect();
+      }, 3000); // Wait for 10 seconds before resetting
     }
+  }
+
+  resetTypingEffect(): void {
+    this.typedText = '';
+    this.currentIndex = 0;
+    this.startTyping();
   }
 }

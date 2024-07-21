@@ -5,10 +5,21 @@ import { HomeComponent } from './home/home.component';
 import { SkillsSectionComponent } from './skills-section/skills-section.component';
 import { ProjectSectionComponent } from './project-section/project-section.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';
+import { AwardsComponent } from './awards/awards.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NavBarComponent, HomeComponent, SkillsSectionComponent, ProjectSectionComponent, FooterComponent],
+  imports: [
+    RouterModule,
+    NavBarComponent,
+    HomeComponent,
+    SkillsSectionComponent,
+    ProjectSectionComponent,
+    FooterComponent,
+    ContactComponent,
+    AwardsComponent
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-root',
   templateUrl: './app.component.html',
