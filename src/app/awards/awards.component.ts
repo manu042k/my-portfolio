@@ -6,13 +6,31 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './awards.component.html',
-  styleUrl: './awards.component.scss'
+  styleUrl: './awards.component.scss',
 })
 export class AwardsComponent {
   awards = [
-    { title: 'Award Title 1', details: 'Details about the award, including the year received and the awarding organization.', icon: 'fas fa-trophy', link: 'https://example.com/award1' },
-    { title: 'Award Title 2', details: 'Details about the award, including the year received and the awarding organization.', icon: 'fas fa-medal', link: 'https://example.com/award2' },
-    { title: 'Award Title 3', details: 'Details about the award, including the year received and the awarding organization.', icon: 'fas fa-star', link: 'https://example.com/award3' },
-    { title: 'Award Title 3', details: 'Details about the award, including the year received and the awarding organization.', icon: 'fas fa-star', link: 'https://example.com/award3' }
+    {
+      title: 'Runner Up - DC Hackathon',
+      details:
+        "Developed the MVP for 'SKB Copilot: Smart Knowledge Documentation and Sharing' utilizing Generative AI and LLM at Siemens Healthineers, February 2024.",
+      icon: 'fas fa-trophy',
+      link: 'https://drive.google.com/file/d/1ZTh2lWBenWZjcAj3DQ7zaKUf1IsO9pkF/view?usp=drive_link',
+    },
+    {
+      title: 'Finalist, DC Excellence Awards',
+      details:
+        'Recognized as a Rising Star for exceptional achievements with under three years of experience at Siemens Healthineers, 2023-2024.',
+      icon: 'fas fa-medal',
+      link: '',
+    },
+    {
+      title: 'e-Yantra Hackathon',
+      details:
+        'Led a team to a top 6 finish out of 1,878 teams, focusing on innovative solutions to combat COVID-19, e-Yantra IIT-B, 2021.',
+      icon: 'fas fa-star',
+      link: 'https://drive.google.com/file/d/1T9wBocS81G-ksW-mvcQTcb8P18TKuinG/view?usp=drive_link',
+    },
   ];
+
 }
