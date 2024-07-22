@@ -60,9 +60,9 @@
   flex: 0 0 auto; /* Ensure cards don't shrink */
   position: relative;
   padding: 1rem;
-  background: white;
+  background-color: var(--color-light-grey);
   transition: transform 0.3s ease;
-  min-width: 12rem; /* Set minimum width for cards */
+  width: 20rem; /* Set minimum width for cards */
 }
 
 .card img {

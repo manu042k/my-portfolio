@@ -9,33 +9,52 @@ import { CommonModule } from '@angular/common';
   styleUrl: './project-section.component.scss',
 })
 export class ProjectSectionComponent {
-
   @ViewChild('cardWrapper') cardWrapper?: ElementRef;
 
   scrollAmount = 200; // Adjust this value based on card width and desired scroll distance
   currentOffset = 0;
 
   projects = [
-    { title: 'Project 1', description: 'Description of project 1.', image: 'https://via.placeholder.com/80' },
-    { title: 'Project 2', description: 'Description of project 2.', image: 'https://via.placeholder.com/80' },
-    { title: 'Project 3', description: 'Description of project 3.', image: 'https://via.placeholder.com/80' },
-    { title: 'Project 4', description: 'Description of project 4.', image: 'https://via.placeholder.com/80' },
-    { title: 'Project 4', description: 'Description of project 4.', image: 'https://via.placeholder.com/80' },
-    { title: 'Project 4', description: 'Description of project 4.', image: 'https://via.placeholder.com/80' },
+    {
+      title: 'G-Ai-chatbot',
+      description:
+        'Project features a front-end and back-end architecture that leverages Ollama for running LLMs locally to ensure fast and efficient language processing, LangChain for chaining language models to enhance conversational capabilities, FastAPI for high-performance API creation, and ChromaDB for efficient and scalable database management, providing a robust and responsive chatbot experience',
+    },
+    {
+      title: 'Angular Frontend',
+      description:
+        'Contributed to development of a cross-platform solution to simplify laboratory data management using  micro-frontends (angular-architects module fedration), with a focus on creating user interfaces in Angular utilizing the SHUI framework for consistent design, ngrx for robust state management,and nx cli for an integrated development experience, and scalability.',
+    },
+    {
+      title: 'Django Full stack',
+      description:
+        'Developed a proof-of-concept multi-tenant web application using Django to handle 1,000 tenants and over 1 million inventory records. Implemented Roles Management, Order Management, and Inventory Management Systems. Created background jobs with Celery, APIs for communication, and Dockerized the application for deployment on Azure Cloud.',
+    },
 
+    {
+      title: 'Web Application Development',
+      description:
+        'Developed a prenatal risk calculation system (PRISCA) from its original WPF-based structure to a web application using the Django framework.Implemented role-based functionalities for various users. The system efficiently generates detailed reports by integrating data from biochemical markers, ultrasound measurements, and demographic information.',
+    },
   ];
 
   scrollLeft() {
     const container = this.cardWrapper?.nativeElement;
     const maxOffset = 0;
-    this.currentOffset = Math.min(maxOffset, this.currentOffset + this.scrollAmount);
+    this.currentOffset = Math.min(
+      maxOffset,
+      this.currentOffset + this.scrollAmount
+    );
     container.style.transform = `translateX(${this.currentOffset}px)`;
   }
 
   scrollRight() {
     const container = this.cardWrapper?.nativeElement;
     const maxOffset = container.scrollWidth - container.clientWidth;
-    this.currentOffset = Math.max(-maxOffset, this.currentOffset - this.scrollAmount);
+    this.currentOffset = Math.max(
+      -maxOffset,
+      this.currentOffset - this.scrollAmount
+    );
     container.style.transform = `translateX(${this.currentOffset}px)`;
   }
 }

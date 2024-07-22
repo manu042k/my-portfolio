@@ -8,10 +8,9 @@
       <div class="card-wrapper" #cardWrapper>
         <!-- Project Card -->
         <div class="card" *ngFor="let project of projects">
-          <img [src]="project.image" alt="project" />
           <div class="card-body">
             <h5 class="card-title">{{ project.title }}</h5>
-            <p class="card-text">{{ project.description }}</p>
+            <p align="justify" class="card-text">{{ project.description }}</p>
           </div>
         </div>
       </div>
