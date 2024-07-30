@@ -44,4 +44,4 @@ To run this project locally, follow these steps:
 
 ## Deployment
 
-Addination the website is available at : https://manoj042k.netlify.app/
+The website is available at : https://manoj042k.netlify.app/
