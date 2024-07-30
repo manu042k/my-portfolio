@@ -10,12 +10,11 @@ import { NavigationService } from '../service/navigation.service';
   styleUrl: './nav-bar.component.scss',
 })
 export class NavBarComponent {
+  title: string = 'Portfolio';
 
-
-  navigationService = inject(NavigationService)
+  navigationService = inject(NavigationService);
 
   navigateTo(section: string) {
     this.navigationService.scrollToSection(section);
-
   }
 }

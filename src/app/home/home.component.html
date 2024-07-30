@@ -1,42 +1,16 @@
 <div id="home"></div>
 <div class="jumbotron text-center">
-  <img
-    src="./../../assets/myimage.jpg"
-    alt="Manoj Manjunatha"
-    class="rounded-image"
-  />
+  <img src="{{ imagePath }}" alt="Manoj Manjunatha" class="rounded-image" />
   <h1 class="display-4" appTyping="Hello, I'm Manoj Manjunatha"></h1>
-  <p class="lead animated-subtitle">
-    I'm a Software Developer specializing in web and application development.
-  </p>
+  <p class="lead animated-subtitle">{{ subTitle }}</p>
 </div>
 
 <div id="social-links" class="container text-center">
   <div class="row justify-content-center">
-    <div class="col-4 col-md-2">
-      <a href="https://github.com/manu042k" target="_blank" class="social-icon">
-        <i class="fab fa-github"></i>
-        <p>GitHub</p>
-      </a>
-    </div>
-    <div class="col-4 col-md-2">
-      <a
-        href="https://www.linkedin.com/in/manojm042k/"
-        target="_blank"
-        class="social-icon"
-      >
-        <i class="fab fa-linkedin"></i>
-        <p>LinkedIn</p>
-      </a>
-    </div>
-    <div class="col-4 col-md-2">
-      <a
-        href="https://drive.google.com/drive/folders/1kL0fzznCEdT38PgVDM1BvH1VWfW7ZHFT?usp=drive_link"
-        target="_blank"
-        class="social-icon"
-      >
-        <i class="fas fa-file-alt"></i>
-        <p>Resume</p>
+    <div class="col-4 col-md-2" *ngFor="let link of socialLinks">
+      <a [href]="link.url" target="_blank" class="social-icon">
+        <i [class]="link.icon"></i>
+        <p>{{ link.name }}</p>
       </a>
     </div>
   </div>
@@ -44,14 +18,7 @@
 <div id="about" class="container">
   <h2 class="section-title">About Me</h2>
   <p align="justify">
-    I’m Manoj Manjunatha, a Master’s student in Computer Engineering at UC
-    Riverside. My experience at Siemens Healthineers has been instrumental in
-    shaping my skills, where I contributed to modernizing laboratory and
-    inventory management systems, developed scalable cloud-based applications
-    using Django, and designed user-friendly interfaces with Angular. My
-    expertise in creating impactful solutions and my passion for technology
-    drive my work. Explore my projects to see how I apply these skills to
-    address real-world challenges
+    {{ aboutMe }}
   </p>
   <hr />
 </div>

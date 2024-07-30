@@ -1,27 +1,47 @@
-# MyPortfolio
+# Protfolio Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+This is a personal portfolio project built with Angular. The project showcases various sections such as a navigation bar, home section, skills, projects, awards, contact information, and footer.
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project is a personal portfolio website designed to showcase skills, projects, awards, and contact information in a clean and user-friendly manner. It is built using Angular and follows a component-based architecture.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Responsive design
+- Typing animation for text
+- Dynamic skill section with animation delays
+- Project showcase
+- Awards and recognition section
+- Contact
+- Footer
 
-## Build
+## Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular
+- TypeScript
+- HTML
+- CSS
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run this project locally, follow these steps:
 
-## Running end-to-end tests
+1. **Clone the repository:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   git clone https://github.com/your-username/profile-project.git
+   ```
 
-## Further help
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the application:**
+   ```bash
+   ng s
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Deployment
+
+Addination the website is available at : https://manoj042k.netlify.app/
