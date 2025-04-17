@@ -10,7 +10,7 @@ import { TypingDirective } from '../directive/typing.directive';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  imagePath: string = './../../assets/myimage.jpg';
+  imagePath: string = './../../assets/me.jpg';
   subTitle: string =
     "I'm a Software Developer specializing in web and application development.";
   aboutMe: string =
