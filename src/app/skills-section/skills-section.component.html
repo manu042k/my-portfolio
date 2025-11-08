@@ -1,15 +1,15 @@
 <div id="skills" class="skills-section">
   <div class="container">
     <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div
-        class="grid-item"
-        *ngFor="let skill of skills"
-        [ngStyle]="{ 'animation-delay': skill.delay + 's' }"
-      >
-        <img [src]="skill.image" [alt]="skill.name" />
-        <span>{{ skill.name }}</span>
-      </div>
+    <div class="cloud-container">
+      <app-icon-cloud
+        [icons]="skills"
+        [radius]="300"
+        maxSpeed="normal"
+        initSpeed="normal"
+        [direction]="135"
+        [keep]="true"
+      ></app-icon-cloud>
     </div>
   </div>
 </div>

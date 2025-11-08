@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconCloudComponent } from '../icon-cloud/icon-cloud.component';
 
 @Component({
   selector: 'app-skills-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconCloudComponent],
   templateUrl: './skills-section.component.html',
   styleUrl: './skills-section.component.scss',
 })
-export class SkillsSectionComponent implements OnInit {
-  skills: any = [
+export class SkillsSectionComponent {
+  skills = [
     { name: 'C', image: './../../assets/c.png' },
     { name: 'C#', image: './../../assets/ch.png' },
     { name: 'Python', image: './../../assets/python.png' },
     { name: 'Typescript', image: './../../assets/typescript.png' },
     { name: 'NodeJs', image: './../../assets/nodejs.png' },
-
     { name: 'DOT-NET', image: './../../assets/dotnet.png' },
     { name: 'Django', image: './../../assets/django.png' },
     { name: 'Angular', image: './../../assets/angular.png' },
@@ -28,23 +28,8 @@ export class SkillsSectionComponent implements OnInit {
     { name: 'MySQL', image: './../../assets/db.png' },
     { name: 'MongoDb', image: './../../assets/mongodb.png' },
     { name: 'Firebase', image: './../../assets/firebase.png' },
-    { name: 'Microservices ', image: './../../assets/microservices.png' },
-    { name: 'Microfrontend ', image: './../../assets/microfrontend.png' },
+    { name: 'Microservices', image: './../../assets/microservices.png' },
+    { name: 'Microfrontend', image: './../../assets/microfrontend.png' },
     { name: 'Nx Cli', image: './../../assets/nx.png' },
-
-
-
   ];
-
-  ngOnInit() {
-    this.addAnimationDelays();
-  }
-
-
-  addAnimationDelays() {
-    this.skills.forEach((skill: { [x: string]: number; }) => {
-      skill['delay'] = Math.random() * 2; // Delay between 0 and 2 seconds
-    });
-
-  }
 }
