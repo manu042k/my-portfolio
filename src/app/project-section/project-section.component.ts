@@ -18,7 +18,7 @@ export class ProjectSectionComponent {
     {
       title: 'AgileBot',
       description:
-        'Developed a SaaS platform that automates user story generation from software requirement documents using Django DRF, React, and Tailwind for the frontend, and LangChain, FAISS, and llama-3.2 . The platform integrates Groq AI Inference and Cohere vector embeddings for enhanced task generation, with sprint planning and team management features to streamline agile workflows and improve project efficiency.'
+        'Developed a SaaS platform that automates user story generation from software requirement documents using Django DRF, React, and Tailwind for the frontend, and LangChain, FAISS, and llama-3.2 . The platform integrates Groq AI Inference and Cohere vector embeddings for enhanced task generation, with sprint planning and team management features to streamline agile workflows and improve project efficiency.',
     },
     {
       title: 'G-Ai-chatbot',
