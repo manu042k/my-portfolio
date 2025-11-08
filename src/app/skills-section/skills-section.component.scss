@@ -1,11 +1,12 @@
 .skills-section {
-  padding: 6rem 0;
-  background: white;
+  padding: var(--spacing-3xl) 0;
+  background: var(--color-background);
+  transition: background var(--transition-base);
   
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-sm);
   }
   
   @media (max-width: 768px) {
@@ -36,17 +37,17 @@
 }
 
 .grid-item {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--color-background);
+  border: 1px solid var(--color-border-light);
   text-align: center;
-  padding: 1.5rem 1rem;
-  border-radius: 16px;
+  padding: var(--spacing-md) var(--spacing-sm);
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-2);
   opacity: 0;
   animation: fadeIn 0.8s forwards;
   position: relative;
@@ -61,7 +62,12 @@
     height: 3px;
     background: linear-gradient(90deg, var(--color-accent), #0077ed);
     transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform var(--transition-base);
+  }
+  
+  &:focus-within {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
   
   span {
@@ -92,10 +98,10 @@
 .grid-item img {
   width: 3.5rem;
   height: 3.5rem;
-  margin-bottom: 0.75rem;
-  border-radius: 12px;
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--radius-md);
   object-fit: contain;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform var(--transition-spring);
   
   @media (max-width: 768px) {
     width: 3rem;
@@ -109,26 +115,27 @@
 }
 
 .grid-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 113, 227, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-3);
+  border-color: var(--color-accent);
   
   &::before {
     transform: scaleX(1);
   }
   
   img {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(-5deg);
+  }
+  
+  span {
+    color: var(--color-accent);
+    font-weight: 600;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.grid-item:active {
+  transform: translateY(-4px) scale(1);
+  box-shadow: var(--shadow-1);
 }
+
+// Animation moved to shared _animations.scss

@@ -1,12 +1,13 @@
 /* projects.component.css */
 .projects-wrapper {
-  padding: 6rem 0;
-  background: var(--color-light-grey);
+  padding: var(--spacing-3xl) 0;
+  background: var(--color-background-secondary);
+  transition: background var(--transition-base);
   
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-sm);
   }
   
   @media (max-width: 768px) {
@@ -26,9 +27,9 @@
 }
 
 .scroll-btn {
-  background: white;
+  background: var(--color-background);
   backdrop-filter: saturate(180%) blur(20px);
-  border: none;
+  border: 1px solid var(--color-border-light);
   width: 48px;
   height: 48px;
   cursor: pointer;
@@ -38,8 +39,8 @@
   transform: translateY(-50%);
   font-size: 1.25rem;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: var(--shadow-2);
+  transition: all var(--transition-base);
   color: var(--color-text-primary);
   display: flex;
   align-items: center;
@@ -53,12 +54,12 @@
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(0, 113, 227, 0.05), rgba(0, 119, 237, 0.05));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-fast);
   }
   
   &:hover {
-    background: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 12px 48px rgba(0, 0, 0, 0.1);
+    background: var(--color-background);
+    box-shadow: var(--shadow-3);
     transform: translateY(-50%) scale(1.08);
     color: var(--color-accent);
     
@@ -69,11 +70,12 @@
   
   &:active {
     transform: translateY(-50%) scale(1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-1);
   }
   
-  &:focus {
-    outline: none;
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 }
 
@@ -115,14 +117,14 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2);
   flex: 0 0 auto;
   position: relative;
-  padding: 2rem 1.5rem;
-  background: white;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--color-background);
+  transition: all var(--transition-base);
   width: 20rem;
   overflow: hidden;
   
@@ -135,7 +137,12 @@
     height: 4px;
     background: linear-gradient(90deg, var(--color-accent), #0077ed);
     transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform var(--transition-base);
+  }
+  
+  &:focus-within {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 }
 
@@ -143,30 +150,45 @@
   width: 5rem;
   height: 5rem;
   object-fit: contain;
-  margin-bottom: 1rem;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: var(--spacing-sm);
+  transition: transform var(--transition-spring);
 }
 
 .card-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   font-weight: 600;
   font-size: 1.25rem;
   color: var(--color-text-primary);
+  transition: color var(--transition-fast);
 }
 
-/* Hover Effect */
+.card-text {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+/* Hover Effect with Spring Animation */
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 113, 227, 0.2);
+  box-shadow: var(--shadow-4);
+  border-color: var(--color-accent);
   
   &::before {
     transform: scaleX(1);
   }
   
   img {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(3deg);
   }
+  
+  .card-title {
+    color: var(--color-accent);
+  }
+}
+
+.card:active {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
 }
 
 /* Responsive Styles */
