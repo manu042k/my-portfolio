@@ -1,29 +1,65 @@
 <div id="recognition" class="awards-section">
   <div class="container">
     <h2 class="section-title">Awards & Recognition</h2>
-    <div class="awards-grid">
-      <div
-        class="flashcard"
-        *ngFor="let award of awards; let i = index"
-        [style.animation-delay.s]="i * 0.15"
-      >
-        <div class="flashcard-inner">
-          <div class="flashcard-front">
-            <i [class]="award.icon"></i>
-            <h3 class="card-title">{{ award.title }}</h3>
+    <div class="marquee-container">
+      <div class="marquee" [class.paused]="isPaused">
+        <div class="marquee-content">
+          <div
+            class="flashcard"
+            *ngFor="let award of awards"
+            (mouseenter)="pauseMarquee()"
+            (mouseleave)="resumeMarquee()"
+          >
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <i [class]="award.icon"></i>
+                <h3 class="card-title">{{ award.title }}</h3>
+              </div>
+              <div class="flashcard-back">
+                <p>{{ award.details }}</p>
+                <a
+                  *ngIf="award.link"
+                  [href]="award.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="award-link"
+                  (click)="$event.stopPropagation()"
+                >
+                  View Certificate
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="flashcard-back">
-            <p>{{ award.details }}</p>
-            <a
-              *ngIf="award.link"
-              [href]="award.link"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="award-link"
-            >
-              View Certificate
-              <i class="fas fa-external-link-alt"></i>
-            </a>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="marquee-content" aria-hidden="true">
+          <div
+            class="flashcard"
+            *ngFor="let award of awards"
+            (mouseenter)="pauseMarquee()"
+            (mouseleave)="resumeMarquee()"
+          >
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <i [class]="award.icon"></i>
+                <h3 class="card-title">{{ award.title }}</h3>
+              </div>
+              <div class="flashcard-back">
+                <p>{{ award.details }}</p>
+                <a
+                  *ngIf="award.link"
+                  [href]="award.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="award-link"
+                  (click)="$event.stopPropagation()"
+                >
+                  View Certificate
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

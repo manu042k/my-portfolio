@@ -9,7 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './awards.component.scss',
 })
 export class AwardsComponent {
+  isPaused = false;
+
   awards = [
+    {
+      title: 'Winners - AI idea Pitch Competition 2025 ',
+      details:
+        'Presented idea on how to automate verification testing using AI agents (Browser Agents).',
+      icon: 'fas fa-trophy',
+      link: '',
+    },
     {
       title: 'Runner Up - DC Hackathon',
       details:
@@ -33,4 +42,11 @@ export class AwardsComponent {
     },
   ];
 
+  pauseMarquee() {
+    this.isPaused = true;
+  }
+
+  resumeMarquee() {
+    this.isPaused = false;
+  }
 }

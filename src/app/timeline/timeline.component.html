@@ -1,0 +1,89 @@
+<section class="timeline-section" id="timeline">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My Journey</h2>
+      <p class="section-subtitle">From Education to Professional Excellence</p>
+    </div>
+    <div class="timeline">
+      <div
+        class="timeline-item"
+        *ngFor="let item of timelineItems; let i = index"
+        [class.left]="i % 2 === 0"
+        [class.right]="i % 2 !== 0"
+        [attr.data-type]="item.type"
+      >
+        <div class="timeline-content">
+          <div class="timeline-icon">
+            <span class="icon" [ngSwitch]="item.type">
+              <svg
+                *ngSwitchCase="'education'"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              <svg
+                *ngSwitchCase="'internship'"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+              <svg
+                *ngSwitchDefault
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </span>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-year">{{ item.years }}</span>
+            <h3 class="timeline-role">{{ item.role }}</h3>
+            <h4 class="timeline-name">{{ item.name }}</h4>
+            <p class="timeline-description">{{ item.description }}</p>
+            <span
+              class="timeline-badge"
+              [class.education]="item.type === 'education'"
+              [class.internship]="item.type === 'internship'"
+              [class.work]="item.type === 'work'"
+            >
+              {{
+                item.type === "education"
+                  ? "🎓 Education"
+                  : item.type === "internship"
+                  ? "💼 Internship"
+                  : "🚀 Work"
+              }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
