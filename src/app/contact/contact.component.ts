@@ -5,10 +5,11 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  email: string = "manu042k@gmail.com";
-  address: string = "Riverside,CA, USA";
-  linkedin: string = "manojm042k";
+  email: string = 'manu042k@gmail.com';
+  address: string = 'Riverside,CA, USA';
+  linkedin: string = 'https://www.linkedin.com/in/manojm042k/';
+  linkedinHandle: string = 'manojm042k';
 }

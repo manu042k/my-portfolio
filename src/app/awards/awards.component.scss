@@ -1,81 +1,250 @@
+.awards-section {
+  padding: 6rem 0;
+  background: var(--color-light-grey);
+  overflow: hidden;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 5rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4rem 0;
+  }
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .flashcard {
-  perspective: 1000px;
-  margin: 0.5rem;
-  animation: fadeIn 1s forwards;
+  perspective: 1500px;
+  animation: fadeIn 0.8s forwards;
+  opacity: 0;
+  height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .flashcard-inner {
   position: relative;
   width: 100%;
-  height: 10rem;
-  transition: transform 0.6s;
+  min-height: 320px;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-style: preserve-3d;
-  border-radius: 0.5rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transform: rotateY(0deg);
+  transform-origin: center center;
+  
+  @media (max-width: 768px) {
+    min-height: 300px;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 280px;
+    border-radius: 14px;
+  }
 }
 
 .flashcard:hover .flashcard-inner {
   transform: rotateY(180deg);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard:active .flashcard-inner {
+  transform: rotateY(180deg);
 }
 
 .flashcard-front,
 .flashcard-back {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.75rem 1.25rem;
+    border-radius: 14px;
+  }
 }
 
 .flashcard-front {
-  background-color: var(--color-light-grey);
+  background: white;
   color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), #0077ed);
+  }
+  
+  h3 {
+    margin-top: 1rem;
+  }
 }
 
 .flashcard-back {
-  background: var(--color-light-grey);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0077ed 100%);
+  color: white;
+  border: none;
   transform: rotateY(180deg);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.3);
+  padding: 2rem 1.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+  
+  p {
+    margin-bottom: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .flashcard i {
-  font-size: 2rem;
-  color: var(--color-black);
-  margin-bottom: 0.25rem;
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+  
+  @media (max-width: 768px) {
+    font-size: 2.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.flashcard:hover .flashcard-front i {
+  transform: scale(1.1);
+}
+
+.flashcard-back i {
+  color: white;
 }
 
 .flashcard h3 {
   margin: 0;
   font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+  padding: 0 1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
 }
 
 .flashcard p {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-align: center;
+  line-height: 1.6;
+}
+
+.flashcard-back p {
+  opacity: 0.95;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5;
 }
 
 .award-link {
-  color: var(--color-black);
+  color: white;
   text-decoration: none;
-  display: block;
-  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 980px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: auto;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  i {
+    font-size: 0.875rem;
+  }
 }
 
-.award-link i {
-  font-size: 1.5rem; /* Smaller icon size */
-  margin-left: 0.5rem;
-  color: var(--color-black);
-}
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

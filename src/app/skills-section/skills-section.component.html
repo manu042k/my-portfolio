@@ -1,9 +1,9 @@
-<div id="skills" class="container">
-  <h2 class="section-title">Skills</h2>
-  <div class="container" style="padding-left: 5%">
-    <div class="row">
+<div id="skills" class="skills-section">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
       <div
-        class="col-6 col-md-2 grid-item"
+        class="grid-item"
         *ngFor="let skill of skills"
         [ngStyle]="{ 'animation-delay': skill.delay + 's' }"
       >
@@ -12,5 +12,4 @@
       </div>
     </div>
   </div>
-  <hr />
 </div>

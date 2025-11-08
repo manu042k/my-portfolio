@@ -1,30 +1,131 @@
 .navbar {
-  background-color: var(--color-grey);
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  padding: 0.75rem 2rem;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .navbar-brand {
   color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: var(--color-accent);
+  }
 }
+
 .nav-item {
-  margin: 0 1rem;
+  margin: 0 0.25rem;
 }
+
 .nav-link {
-  color: var(--color-black);
+  color: var(--color-text-primary);
   padding: 0.5rem 1rem;
-  border-radius: 5rem; /* Adjust the radius as needed */
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transform: translateX(-50%);
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 }
-.custom-toggler .navbar-toggler-icon {
-  display: none;
+
+.custom-toggler {
+  border: none;
+  padding: 0.5rem;
+  
+  .navbar-toggler-icon {
+    display: none;
+  }
+  
+  .fa-bars {
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+  }
+  
+  &:focus {
+    box-shadow: none;
+  }
 }
-.custom-toggler .fa-bars {
-  color: var(--color-black);
-}
+
 .nav-link:hover,
-.nav-link:focus,
-.nav-link:active {
-  background-color: var(--color-medium-grey);
-  color: var(--color-white);
-  outline: none; /* Remove outline for focus and active states */
+.nav-link:focus {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-text-primary);
+  outline: none;
+  
+  &::before {
+    width: 50%;
+  }
 }
+
+.nav-link:active {
+  background-color: rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+
+.navbar-collapse {
+  @media (max-width: 991px) {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+  }
+}
+
+.navbar-nav {
+  @media (max-width: 991px) {
+    .nav-item {
+      margin: 0.25rem 0;
+    }
+    
+    .nav-link {
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-link {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.navbar {
+  @media (max-width: 480px) {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.navbar-brand {
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
+
 .black-color {
   color: var(--color-black);
 }

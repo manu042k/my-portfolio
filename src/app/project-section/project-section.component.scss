@@ -1,50 +1,112 @@
 /* projects.component.css */
+.projects-wrapper {
+  padding: 6rem 0;
+  background: var(--color-light-grey);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 5rem 0;
+  }
+}
+
 .projects-container {
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  flex-direction: row; /* Ensure horizontal layout for scrolling */
-  width: 100%; /* Full width */
-  padding: 0 1rem; /* Padding for responsiveness */
+  flex-direction: row;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 3rem;
 }
 
 .scroll-btn {
-  background-color: #f0f0f0;
+  background: white;
+  backdrop-filter: saturate(180%) blur(20px);
   border: none;
-  padding: 0.8rem;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
   z-index: 10;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-radius: 50%;
-  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
-  /* Adjust button size for smaller screens */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 113, 227, 0.05), rgba(0, 119, 237, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 12px 48px rgba(0, 0, 0, 0.1);
+    transform: translateY(-50%) scale(1.08);
+    color: var(--color-accent);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:focus {
+    outline: none;
+  }
 }
 
 .scroll-btn.left {
-  left: 0;
+  left: 1rem;
+  
+  @media (max-width: 768px) {
+    left: 0.5rem;
+  }
 }
 
 .scroll-btn.right {
-  right: 0;
+  right: 1rem;
+  
+  @media (max-width: 768px) {
+    right: 0.5rem;
+  }
 }
 
 .projects-section {
   overflow: hidden;
   flex: 1;
-  margin: 0 5rem; /* Space for buttons */
-  width: 100%; /* Full width */
-  max-width: 100vw; /* Prevents overflow */
+  margin: 0 5rem;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .card-wrapper {
   display: flex;
-  gap: 1rem; /* Space between cards */
-  transition: transform 0.5s ease;
-  flex-wrap: nowrap; /* Ensure cards stay in a single row */
+  gap: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-wrap: nowrap;
+  padding: 1rem 0;
 }
 
 .card {
@@ -53,16 +115,28 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 0.25rem;
-  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2),
-    -1rem 0 1rem rgba(0, 0, 0, 0.1); /* Stacked effect */
-  flex: 0 0 auto; /* Ensure cards don't shrink */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  flex: 0 0 auto;
   position: relative;
-  padding: 1rem;
-  background-color: var(--color-light-grey);
-  transition: transform 0.3s ease;
-  width: 20rem; /* Set minimum width for cards */
+  padding: 2rem 1.5rem;
+  background: white;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 20rem;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), #0077ed);
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 }
 
 .card img {
@@ -70,23 +144,37 @@
   height: 5rem;
   object-fit: contain;
   margin-bottom: 1rem;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .card-title {
   margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
 }
 
 /* Hover Effect */
 .card:hover {
-  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.4),
-    -1.5rem 0 1.5rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 113, 227, 0.2);
+  
+  &::before {
+    transform: scaleX(1);
+  }
+  
+  img {
+    transform: scale(1.1);
+  }
 }
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .scroll-btn {
-    font-size: 1.4rem;
-    padding: 0.7rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
   }
 
   .projects-section {
@@ -94,51 +182,82 @@
   }
 
   .card {
-    min-width: 11rem;
+    width: 18rem;
   }
 }
 
 @media (max-width: 992px) {
   .scroll-btn {
-    font-size: 1.2rem;
-    padding: 0.6rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
 
   .projects-section {
-    margin: 0 3rem;
+    margin: 0 3.5rem;
   }
 
   .card {
-    min-width: 10rem;
+    width: 16rem;
   }
 }
 
 @media (max-width: 768px) {
   .scroll-btn {
-    font-size: 1rem;
-    padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .projects-section {
-    margin: 0 2rem;
+    margin: 0 3.5rem;
   }
 
   .card {
-    min-width: 9rem;
+    width: 17rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.15rem;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
+  .projects-wrapper {
+    padding: 5rem 0;
+  }
+  
   .scroll-btn {
-    font-size: 0.8rem;
-    padding: 0.4rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
   }
 
   .projects-section {
-    margin: 0 1rem;
+    margin: 0 3.5rem;
   }
 
   .card {
-    min-width: 8rem;
+    width: calc(100vw - 8rem);
+    max-width: 280px;
+    min-width: 240px;
+    padding: 2rem 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }

@@ -1,8 +1,12 @@
-<div id="recognition" class="container">
-  <h2 class="section-title">Awards & Recognition</h2>
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-4" *ngFor="let award of awards">
-      <div class="flashcard">
+<div id="recognition" class="awards-section">
+  <div class="container">
+    <h2 class="section-title">Awards & Recognition</h2>
+    <div class="awards-grid">
+      <div
+        class="flashcard"
+        *ngFor="let award of awards; let i = index"
+        [style.animation-delay.s]="i * 0.15"
+      >
         <div class="flashcard-inner">
           <div class="flashcard-front">
             <i [class]="award.icon"></i>
@@ -17,12 +21,12 @@
               rel="noopener noreferrer"
               class="award-link"
             >
-              <i class="fas fa-link"></i>
+              View Certificate
+              <i class="fas fa-external-link-alt"></i>
             </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <hr />
 </div>

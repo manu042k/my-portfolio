@@ -1,3 +1,119 @@
-a {
-  color: var(--color-text-primary);
+.contact-section {
+  padding: 6rem 0;
+  background: white;
+  position: relative;
+  z-index: 5;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 5rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4rem 0;
+  }
 }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
+}
+
+.contact-item {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  i {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+    
+    i {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 2rem 1.25rem;
+    border-radius: 14px;
+    
+    i {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.contact-label {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem !important;
+  font-size: 1rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+}
+
+.contact-value {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+}
+
+.contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  word-break: break-word;
+  
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+}
+
+
