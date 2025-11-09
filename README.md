@@ -104,4 +104,4 @@ Key components include:
 
 ## Live Demo
 
-https://manoj042k.netlify.app
+https://manu042k.tech
