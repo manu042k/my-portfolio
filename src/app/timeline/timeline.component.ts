@@ -23,7 +23,7 @@ export class TimelineComponent {
       years: 'September 2024 - December 2025',
       role: "Master's in Computer Engineering",
       description:
-        'Pursuing advanced studies in Computer Engineering with a GPA of 3.74/4. Winner of UCR AI Idea Pitch Competition 2025. Specializing in AI/ML, microservices architecture, and full-stack development.',
+        'Pursuing advanced studies in Computer Engineering with a GPA of 3.74/4. Winner of UCR AI Idea Pitch Competition 2025. Specializing in microservices architecture, and full-stack development.',
       type: 'education',
     },
     {

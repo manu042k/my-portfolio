@@ -19,27 +19,25 @@ export class ProjectSectionComponent {
       title: 'AgileBot',
       description:
         'Developed a SaaS platform that automates user story generation from software requirement documents using Django DRF, React, and Tailwind for the frontend, and LangChain, FAISS, and llama-3.2 . The platform integrates Groq AI Inference and Cohere vector embeddings for enhanced task generation, with sprint planning and team management features to streamline agile workflows and improve project efficiency.',
+      detials: 'https://github.com/manu042k/Agile-bot',
     },
     {
-      title: 'G-Ai-chatbot',
+      title: 'CodeGaurd',
       description:
-        'Project features a front-end and back-end architecture that leverages Ollama for running LLMs locally to ensure fast and efficient language processing, LangChain for chaining language models to enhance conversational capabilities, FastAPI for high-performance API creation, and ChromaDB for efficient and scalable database management, providing a robust and responsive chatbot experience',
+        'It is a comprehensive code analysis platform that leverages AI agents to provide detailed insights into your GitHub repositories. It performs multi-faceted analysis including security scanning, code quality assessment, architecture review, dependency management, and trend analysis.',
+      detials: 'https://github.com/manu042k/CodeGaurd',
     },
     {
-      title: 'Angular Frontend',
+      title: 'VisionXAI',
       description:
-        'Contributed to development of a cross-platform solution to simplify laboratory data management using  micro-frontends (angular-architects module fedration), with a focus on creating user interfaces in Angular utilizing the SHUI framework for consistent design, ngrx for robust state management,and nx cli for an integrated development experience, and scalability.',
+        'Visual Query Bot – Developed an interactive chat application that enables users to upload images, draw bounding boxes on specific regions, and ask targeted questions about those areas. Leveraged LangChain and LangGraph to build robust information retrieval agents for context-aware visual querying',
+      detials: 'https://annot-a-ix-v5yz.vercel.app',
     },
     {
-      title: 'Django Full stack',
+      title: 'ChainReaction',
       description:
-        'Developed a proof-of-concept multi-tenant web application using Django to handle 1,000 tenants and over 1 million inventory records. Implemented Roles Management, Order Management, and Inventory Management Systems. Created background jobs with Celery, APIs for communication, and Dockerized the application for deployment on Azure Cloud.',
-    },
-
-    {
-      title: 'Web Application Development',
-      description:
-        'Developed a prenatal risk calculation system (PRISCA) from its original WPF-based structure to a web application using the Django framework.Implemented role-based functionalities for various users. The system efficiently generates detailed reports by integrating data from biochemical markers, ultrasound measurements, and demographic information.',
+        'A real-time multiplayer web implementation of the classic Chain Reaction board game. Create cascading reactions, dominate the board, and outsmart your opponents in this intense strategy game.',
+      detials: 'https://chain-reaction-tau.vercel.app',
     },
   ];
 
