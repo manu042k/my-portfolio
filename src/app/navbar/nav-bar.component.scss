@@ -84,12 +84,13 @@
 
 .navbar-collapse {
   @media (max-width: 991px) {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--material-thick);
     backdrop-filter: blur(20px);
     padding: 1rem;
     border-radius: 12px;
     margin-top: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-3);
+    border: 1px solid var(--color-border-light);
   }
   
   @media (max-width: 480px) {
