@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { TypingDirective } from '../directive/typing.directive';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, TypingDirective],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    imports: [CommonModule, TypingDirective],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   imagePath: string = './../../assets/me.jpg';

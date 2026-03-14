@@ -10,22 +10,21 @@ import { ContactComponent } from './contact/contact.component';
 import { AwardsComponent } from './awards/awards.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    RouterModule,
-    NavBarComponent,
-    HomeComponent,
-    SkillsSectionComponent,
-    TimelineComponent,
-    ProjectSectionComponent,
-    FooterComponent,
-    ContactComponent,
-    AwardsComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    imports: [
+        RouterModule,
+        NavBarComponent,
+        HomeComponent,
+        SkillsSectionComponent,
+        TimelineComponent,
+        ProjectSectionComponent,
+        FooterComponent,
+        ContactComponent,
+        AwardsComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Portfolio';

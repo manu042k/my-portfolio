@@ -2,11 +2,10 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-project-section',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './project-section.component.html',
-  styleUrl: './project-section.component.scss',
+    selector: 'app-project-section',
+    imports: [CommonModule],
+    templateUrl: './project-section.component.html',
+    styleUrl: './project-section.component.scss'
 })
 export class ProjectSectionComponent {
   @ViewChild('cardWrapper') cardWrapper?: ElementRef;

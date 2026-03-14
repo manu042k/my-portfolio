@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-theme-toggle',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './theme-toggle.component.html',
-  styleUrl: './theme-toggle.component.scss',
+    selector: 'app-theme-toggle',
+    imports: [CommonModule],
+    templateUrl: './theme-toggle.component.html',
+    styleUrl: './theme-toggle.component.scss'
 })
 export class ThemeToggleComponent implements OnInit {
   isDarkMode = false;

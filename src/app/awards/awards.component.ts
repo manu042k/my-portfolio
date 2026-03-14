@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-awards',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './awards.component.html',
-  styleUrl: './awards.component.scss',
+    selector: 'app-awards',
+    imports: [CommonModule],
+    templateUrl: './awards.component.html',
+    styleUrl: './awards.component.scss'
 })
 export class AwardsComponent {
   isPaused = false;
