@@ -1,1 +1,79 @@
-<router-outlet></router-outlet>
+<div style="font-family: 'Courier New', Courier, monospace; min-height: 100vh; color: #fff;">
+  <!-- Organism Background -->
+  <app-organism-bg style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;"></app-organism-bg>
+
+  <!-- Portfolio Content Overlay -->
+  <div style="position: relative; z-index: 1; padding: 4rem; max-width: 900px; margin: 0 auto; background: rgba(0, 5, 12, 0.6); backdrop-filter: blur(4px); min-height: 100vh;">
+    
+    <header style="margin-bottom: 4rem; border-bottom: 1px solid rgba(150, 230, 255, 0.3); padding-bottom: 2rem;">
+      <h1 style="font-size: 3rem; margin-bottom: 0.5rem; color: #96e6ff;">Manoj Manjunatha</h1>
+      <p style="font-size: 1.2rem; opacity: 0.8; margin-top: 0;">Software Engineer</p>
+    </header>
+
+    <section style="margin-bottom: 3rem;">
+      <h2 style="color: #c4b5fd; margin-bottom: 1.5rem;">> Education & Experience</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 2rem;">
+          <h3 style="margin: 0; color: #fff; font-size: 1.3rem;">University of California, Riverside</h3>
+          <p style="margin: 0.2rem 0; color: #93c5fd;">Master's in Computer Engineering | Sep 2024 - Dec 2025</p>
+          <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">Pursuing advanced studies in Computer Engineering with a GPA of 3.74/4. Specializing in microservices architecture, and full-stack development.</p>
+        </li>
+        <li style="margin-bottom: 2rem;">
+          <h3 style="margin: 0; color: #fff; font-size: 1.3rem;">Micron Technology</h3>
+          <p style="margin: 0.2rem 0; color: #93c5fd;">System Software Engineer Intern | Jun 2025 - Sep 2025</p>
+          <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">Designed and deployed a memory component fitness analysis tool using Angular 20, .NET Core Web API, and IIS server.</p>
+        </li>
+        <li style="margin-bottom: 2rem;">
+          <h3 style="margin: 0; color: #fff; font-size: 1.3rem;">Siemens Healthineers</h3>
+          <p style="margin: 0.2rem 0; color: #93c5fd;">Software Developer/Engineer | Aug 2022 - Aug 2024</p>
+          <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">Developed UI of laboratory data management system. Built and deployed a multi-tenant Django application on Azure Cloud supporting 1,000+ tenants and 1M+ records.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom: 3rem;">
+      <h2 style="color: #c4b5fd; margin-bottom: 1.5rem;">> Core Skills</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Python</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">TypeScript</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">C# / .NET</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Angular</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Django</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Node.js</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Microservices</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Azure Cloud</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">LangChain</span>
+        <span style="border: 1px solid rgba(150, 230, 255, 0.4); padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.9rem;">Docker</span>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 3rem;">
+      <h2 style="color: #c4b5fd; margin-bottom: 1.5rem;">> Projects</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1.5rem;">
+          <h3 style="margin: 0; color: #fff; font-size: 1.2rem;">AgileBot</h3>
+          <p style="margin: 0.2rem 0; font-size: 0.95rem; opacity: 0.9; line-height: 1.5;">SaaS platform for user story generation using LangChain, llama-3.2, Django DRF, React.</p>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h3 style="margin: 0; color: #fff; font-size: 1.2rem;">CodeGaurd</h3>
+          <p style="margin: 0.2rem 0; font-size: 0.95rem; opacity: 0.9; line-height: 1.5;">Comprehensive AI-powered code analysis platform for GitHub repositories.</p>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h3 style="margin: 0; color: #fff; font-size: 1.2rem;">VisionXAI</h3>
+          <p style="margin: 0.2rem 0; font-size: 0.95rem; opacity: 0.9; line-height: 1.5;">Interactive Visual Query Bot built with LangGraph for context-aware image querying.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="color: #c4b5fd; margin-bottom: 1.5rem;">> Awards</h2>
+      <ul style="list-style: none; padding: 0; font-size: 0.95rem; opacity: 0.9;">
+        <li style="margin-bottom: 0.8rem;">[+] Winners - AI idea Pitch Competition 2025</li>
+        <li style="margin-bottom: 0.8rem;">[+] Runner Up - DC Hackathon (Siemens Healthineers)</li>
+        <li style="margin-bottom: 0.8rem;">[+] Finalist, DC Excellence Awards</li>
+        <li style="margin-bottom: 0.8rem;">[+] e-Yantra Hackathon - Top 6 out of 1,878 teams</li>
+      </ul>
+    </section>
+
+  </div>
+</div>
