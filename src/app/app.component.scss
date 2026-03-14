@@ -543,6 +543,17 @@ $font-code: "Fira Code", monospace;
   opacity: 0; // Starts invisible
 }
 
+// --- Footer ---
+.portfolio-footer {
+  text-align: center;
+  padding-top: 3rem;
+  margin-top: 5rem;
+  border-top: 1px solid $color-glass-border;
+  color: $color-text-muted;
+  font-family: $font-code;
+  font-size: 0.85rem;
+}
+
 // Stagger the animations based on DOM order for a cool load-in effect
 @for $i from 1 through 10 {
   .reveal-item:nth-child(#{$i}) {
