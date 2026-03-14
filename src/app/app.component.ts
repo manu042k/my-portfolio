@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { OrganismBgComponent } from './components/organism-bg/organism-bg.component';
 
@@ -15,6 +15,16 @@ import { OrganismBgComponent } from './components/organism-bg/organism-bg.compon
 })
 export class AppComponent {
   title = 'Portfolio';
+
+  // Calculate mouse position relative to a project card for the glow effect
+  onCardMouseMove(event: MouseEvent) {
+    const card = event.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  }
 
   resumeData = {
     personalInfo: {

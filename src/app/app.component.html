@@ -15,35 +15,98 @@
         </h1>
       </div>
       <p class="hero-subtitle">
-        {{ resumeData.personalInfo.location }}
-        <span class="accent-divider">|</span>
-        {{ resumeData.personalInfo.phone }}
+        <span class="contact-info">
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ resumeData.personalInfo.location }}
+        </span>
         <span class="accent-divider">|</span>
         <a
           href="mailto:{{ resumeData.personalInfo.email }}"
           class="hero-link"
-          >{{ resumeData.personalInfo.email }}</a
-        ><br />
+          title="Email"
+        >
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+        <span class="accent-divider">|</span>
         <a
           href="{{ resumeData.personalInfo.linkedin }}"
           target="_blank"
           class="hero-link"
-          >{{ resumeData.personalInfo.linkedinLabel }}</a
+          title="LinkedIn"
         >
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
         <span class="accent-divider">|</span>
         <a
           href="{{ resumeData.personalInfo.github }}"
           target="_blank"
           class="hero-link"
-          >{{ resumeData.personalInfo.githubLabel }}</a
+          title="GitHub"
         >
-        <span class="accent-divider">|</span>
-        <a
-          href="{{ resumeData.personalInfo.website }}"
-          target="_blank"
-          class="hero-link"
-          >{{ resumeData.personalInfo.websiteLabel }}</a
-        >
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            ></path>
+          </svg>
+        </a>
       </p>
     </header>
 
@@ -120,19 +183,22 @@
         <div class="timeline">
           @for (exp of resumeData.experience; track exp.company + exp.dates) {
             <div class="timeline-item">
-              <div class="resume-header">
-                <h3 class="item-title">{{ exp.company }}</h3>
-                <span class="item-location">{{ exp.location }}</span>
+              <div class="timeline-node"></div>
+              <div class="timeline-content">
+                <div class="resume-header">
+                  <h3 class="item-title">{{ exp.company }}</h3>
+                  <span class="item-location">{{ exp.location }}</span>
+                </div>
+                <div class="resume-subheader">
+                  <p class="item-role">{{ exp.title }}</p>
+                  <span class="item-dates">{{ exp.dates }}</span>
+                </div>
+                <ul class="bullet-list">
+                  @for (bullet of exp.bullets; track bullet) {
+                    <li>{{ bullet }}</li>
+                  }
+                </ul>
               </div>
-              <div class="resume-subheader">
-                <p class="item-role">{{ exp.title }}</p>
-                <span class="item-dates">{{ exp.dates }}</span>
-              </div>
-              <ul class="bullet-list">
-                @for (bullet of exp.bullets; track bullet) {
-                  <li>{{ bullet }}</li>
-                }
-              </ul>
             </div>
           }
         </div>
@@ -144,14 +210,26 @@
         </h2>
         <div class="projects-grid">
           @for (project of resumeData.projects; track project.title) {
-            <div class="project-card">
-              <h3 class="project-title">{{ project.title }}</h3>
-              <p class="project-tech">{{ project.tech }}</p>
-              <ul class="bullet-list project-bullets">
-                @for (bullet of project.bullets; track bullet) {
-                  <li>{{ bullet }}</li>
-                }
-              </ul>
+            <div class="project-card" (mousemove)="onCardMouseMove($event)">
+              <div class="terminal-header">
+                <div class="term-dots">
+                  <span class="term-dot close"></span>
+                  <span class="term-dot min"></span>
+                  <span class="term-dot max"></span>
+                </div>
+                <div class="term-title">
+                  bash — {{ project.title.split(" ")[0].toLowerCase() }}
+                </div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-tech">{{ project.tech }}</p>
+                <ul class="bullet-list project-bullets">
+                  @for (bullet of project.bullets; track bullet) {
+                    <li>{{ bullet }}</li>
+                  }
+                </ul>
+              </div>
             </div>
           }
         </div>
