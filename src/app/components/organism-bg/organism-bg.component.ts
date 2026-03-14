@@ -118,8 +118,8 @@ export class OrganismBgComponent implements OnInit, OnDestroy {
         const bellHeight = 110 + sharpThrust * 35 - relax * 15;
 
         // --- 1. Draw the back fine tentacles (drawn first to be behind) ---
-        p.strokeWeight(0.5);
-        p.stroke(80, 130, 255, 30); // Deep sea blue, faint
+        p.strokeWeight(1);
+        p.stroke(80, 160, 255, 80); // Deep sea blue, faint
         p.noFill();
         const numBackTentacles = 70;
         for (let t = 0; t < numBackTentacles; t++) {
@@ -139,10 +139,10 @@ export class OrganismBgComponent implements OnInit, OnDestroy {
           const h = bellHeight * (1 - ltr * 0.15);
           
           // Color shifts from deep blue at the edge to cyan/white at the core
-          const redAmt = p.map(ltr, 0, 1, 10, 180);
-          const greenAmt = p.map(ltr, 0, 1, 50, 240);
-          const blueAmt = p.map(ltr, 0, 1, 120, 255);
-          const alpha = p.map(ltr, 0, 1, 8, 35); // Low alpha builds up
+          const redAmt = p.map(ltr, 0, 1, 20, 220);
+          const greenAmt = p.map(ltr, 0, 1, 80, 255);
+          const blueAmt = p.map(ltr, 0, 1, 150, 255);
+          const alpha = p.map(ltr, 0, 1, 15, 70); // Low alpha builds up
           
           p.fill(redAmt, greenAmt, blueAmt, alpha);
 
@@ -184,22 +184,22 @@ export class OrganismBgComponent implements OnInit, OnDestroy {
           // Pulsing glow size
           const glowSize = 35 + sharpThrust * 12 + p.sin(time * 3 + g) * 6;
           
-          p.fill(200, 240, 255, 30);
+          p.fill(200, 240, 255, 80);
           p.ellipse(gx, gy, glowSize + 15, glowSize + 15);
           
-          p.fill(255, 255, 255, 80); // Bright core
+          p.fill(255, 255, 255, 180); // Bright core
           // slightly elongated
           p.ellipse(gx, gy, glowSize, glowSize * 0.85);
         }
 
         // --- 4. Draw Oral Arms (Thick, frilly central tentacles) ---
         p.noFill();
-        p.strokeWeight(2);
+        p.strokeWeight(2.5);
         const numArms = 5;
         for (let arm = 0; arm < numArms; arm++) {
           const phase = (arm / numArms) * p.TWO_PI;
           // Colors shift slightly warmer for the central arms
-          p.stroke(180, 210, 255, 50);
+          p.stroke(180, 220, 255, 120);
           
           p.beginShape();
           const baseArmLen = 180 + sharpThrust * 40; // lengthens intensely on thrust
@@ -223,8 +223,8 @@ export class OrganismBgComponent implements OnInit, OnDestroy {
         }
 
         // --- 5. Draw the front fine tentacles ---
-        p.strokeWeight(1);
-        p.stroke(150, 230, 255, 70); // Brighter cyan for the front
+        p.strokeWeight(1.5);
+        p.stroke(150, 240, 255, 160); // Brighter cyan for the front
         p.noFill();
         const numFrontTentacles = 60;
         for (let t = 0; t < numFrontTentacles; t++) {
