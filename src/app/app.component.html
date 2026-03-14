@@ -1,303 +1,176 @@
-<div
-  style="
-    font-family: &quot;Courier New&quot;, Courier, monospace;
-    min-height: 100vh;
-    color: #fff;
-  "
->
+<div class="portfolio-wrapper">
   <!-- Organism Background -->
-  <app-organism-bg
-    style="
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    "
-  ></app-organism-bg>
+  <app-organism-bg class="background-canvas"></app-organism-bg>
 
   <!-- Portfolio Content Overlay -->
-  <div
-    style="
-      position: relative;
-      z-index: 1;
-      padding: 4rem;
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(0, 5, 12, 0.1);
-      backdrop-filter: blur(4px);
-      min-height: 100vh;
-    "
-  >
-    <header
-      style="
-        margin-bottom: 4rem;
-        border-bottom: 1px solid rgba(150, 230, 255, 0.3);
-        padding-bottom: 2rem;
-      "
-    >
-      <h1 style="font-size: 3rem; margin-bottom: 0.5rem; color: #96e6ff">
-        {{ resumeData.personalInfo.name }}
-      </h1>
-      <p
-        style="font-size: 1.1rem; opacity: 0.9; margin-top: 0; line-height: 1.6"
-      >
-        {{ resumeData.personalInfo.location }} |
-        {{ resumeData.personalInfo.phone }} |
+  <div class="content-container">
+    <header class="hero-section reveal-item">
+      <div class="typewriter-container">
+        <h1 class="hero-title">
+          @for (char of resumeData.personalInfo.name.split(""); track $index) {
+            <span class="spin-letter" [style.--char-index]="$index">{{
+              char
+            }}</span>
+          }
+        </h1>
+      </div>
+      <p class="hero-subtitle">
+        {{ resumeData.personalInfo.location }}
+        <span class="accent-divider">|</span>
+        {{ resumeData.personalInfo.phone }}
+        <span class="accent-divider">|</span>
         <a
           href="mailto:{{ resumeData.personalInfo.email }}"
-          style="color: #c4b5fd; text-decoration: none"
+          class="hero-link"
           >{{ resumeData.personalInfo.email }}</a
         ><br />
         <a
           href="{{ resumeData.personalInfo.linkedin }}"
           target="_blank"
-          style="color: #c4b5fd; text-decoration: none"
+          class="hero-link"
           >{{ resumeData.personalInfo.linkedinLabel }}</a
         >
-        |
+        <span class="accent-divider">|</span>
         <a
           href="{{ resumeData.personalInfo.github }}"
           target="_blank"
-          style="color: #c4b5fd; text-decoration: none"
+          class="hero-link"
           >{{ resumeData.personalInfo.githubLabel }}</a
         >
-        |
+        <span class="accent-divider">|</span>
         <a
           href="{{ resumeData.personalInfo.website }}"
           target="_blank"
-          style="color: #c4b5fd; text-decoration: none"
+          class="hero-link"
           >{{ resumeData.personalInfo.websiteLabel }}</a
         >
       </p>
     </header>
 
-    <section style="margin-bottom: 3.5rem">
-      <h2
-        style="
-          color: #c4b5fd;
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-          border-left: 3px solid #c4b5fd;
-          padding-left: 1rem;
-        "
-      >
-        > Education
-      </h2>
-      @for (edu of resumeData.education; track edu.institution) {
-        <div style="margin-bottom: 1rem">
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: baseline;
-              flex-wrap: wrap;
-            "
-          >
-            <h3 style="margin: 0; color: #fff; font-size: 1.25rem">
-              {{ edu.institution }}
-            </h3>
-            <span style="color: #96e6ff; font-size: 0.95rem">{{
-              edu.location
-            }}</span>
+    <div class="content-body">
+      <section class="portfolio-section reveal-item">
+        <h2 class="section-title">
+          <span class="code-accent">&gt;</span> Education
+        </h2>
+        @for (edu of resumeData.education; track edu.institution) {
+          <div class="resume-item">
+            <div class="resume-header">
+              <h3 class="item-title">{{ edu.institution }}</h3>
+              <span class="item-location">{{ edu.location }}</span>
+            </div>
+            <div class="resume-subheader">
+              <p class="item-role">{{ edu.degree }}</p>
+              <span class="item-dates">{{ edu.dates }}</span>
+            </div>
+            <p class="item-desc"><strong>GPA:</strong> {{ edu.gpa }}</p>
           </div>
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: baseline;
-              flex-wrap: wrap;
-              margin-top: 0.3rem;
-            "
-          >
-            <p style="margin: 0; color: #93c5fd; font-size: 1.05rem">
-              {{ edu.degree }}
-            </p>
-            <span style="color: #93c5fd; font-size: 0.95rem">{{
-              edu.dates
-            }}</span>
+        }
+      </section>
+
+      <section class="portfolio-section reveal-item">
+        <h2 class="section-title">
+          <span class="code-accent">&gt;</span> Technical Skills
+        </h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4 class="skill-label">Languages</h4>
+            <div class="skill-tags">
+              @for (
+                lang of resumeData.skills.languages.split(",");
+                track lang
+              ) {
+                <span class="tag">{{ lang.trim().replace(".", "") }}</span>
+              }
+            </div>
           </div>
-          <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; opacity: 0.9">
-            <strong>GPA:</strong> {{ edu.gpa }}
-          </p>
+          <div class="skill-category">
+            <h4 class="skill-label">Frameworks & Libraries</h4>
+            <div class="skill-tags">
+              @for (fw of resumeData.skills.frameworks.split(","); track fw) {
+                <span class="tag">{{ fw.trim().replace(".", "") }}</span>
+              }
+            </div>
+          </div>
+          <div class="skill-category" style="grid-column: 1 / -1">
+            <h4 class="skill-label">Developer Tools</h4>
+            <div class="skill-tags">
+              @for (tool of resumeData.skills.tools.split(","); track tool) {
+                <span class="tag">{{ tool.trim().replace(".", "") }}</span>
+              }
+            </div>
+          </div>
+          <div class="skill-category" style="grid-column: 1 / -1">
+            <h4 class="skill-label">Architecture / Methodologies</h4>
+            <div class="skill-tags">
+              @for (
+                arch of resumeData.skills.architecture.split(",");
+                track arch
+              ) {
+                <span class="tag">{{ arch.trim().replace(".", "") }}</span>
+              }
+            </div>
+          </div>
         </div>
-      }
-    </section>
+      </section>
 
-    <section style="margin-bottom: 3.5rem">
-      <h2
-        style="
-          color: #c4b5fd;
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-          border-left: 3px solid #c4b5fd;
-          padding-left: 1rem;
-        "
-      >
-        > Technical Skills
-      </h2>
-      <ul
-        style="
-          list-style: none;
-          padding: 0;
-          font-size: 0.95rem;
-          line-height: 1.6;
-          opacity: 0.95;
-        "
-      >
-        <li style="margin-bottom: 0.6rem">
-          <strong>Languages:</strong> {{ resumeData.skills.languages }}
-        </li>
-        <li style="margin-bottom: 0.6rem">
-          <strong>Developer Tools:</strong> {{ resumeData.skills.tools }}
-        </li>
-        <li style="margin-bottom: 0.6rem">
-          <strong>Technologies/Frameworks:</strong>
-          {{ resumeData.skills.frameworks }}
-        </li>
-        <li style="margin-bottom: 0.6rem">
-          <strong>Architecture/Methodologies:</strong>
-          {{ resumeData.skills.architecture }}
-        </li>
-      </ul>
-    </section>
-
-    <section style="margin-bottom: 3.5rem">
-      <h2
-        style="
-          color: #c4b5fd;
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-          border-left: 3px solid #c4b5fd;
-          padding-left: 1rem;
-        "
-      >
-        > Experience
-      </h2>
-      <ul style="list-style: none; padding: 0">
-        @for (exp of resumeData.experience; track exp.company + exp.dates) {
-          <li style="margin-bottom: 2.5rem">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                flex-wrap: wrap;
-              "
-            >
-              <h3 style="margin: 0; color: #fff; font-size: 1.25rem">
-                {{ exp.company }}
-              </h3>
-              <span style="color: #96e6ff; font-size: 0.95rem">{{
-                exp.location
-              }}</span>
+      <section class="portfolio-section reveal-item">
+        <h2 class="section-title">
+          <span class="code-accent">&gt;</span> Experience
+        </h2>
+        <div class="timeline">
+          @for (exp of resumeData.experience; track exp.company + exp.dates) {
+            <div class="timeline-item">
+              <div class="resume-header">
+                <h3 class="item-title">{{ exp.company }}</h3>
+                <span class="item-location">{{ exp.location }}</span>
+              </div>
+              <div class="resume-subheader">
+                <p class="item-role">{{ exp.title }}</p>
+                <span class="item-dates">{{ exp.dates }}</span>
+              </div>
+              <ul class="bullet-list">
+                @for (bullet of exp.bullets; track bullet) {
+                  <li>{{ bullet }}</li>
+                }
+              </ul>
             </div>
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                flex-wrap: wrap;
-                margin-top: 0.3rem;
-                margin-bottom: 0.8rem;
-              "
-            >
-              <p style="margin: 0; color: #93c5fd; font-size: 1.05rem">
-                {{ exp.title }}
-              </p>
-              <span style="color: #93c5fd; font-size: 0.95rem">{{
-                exp.dates
-              }}</span>
+          }
+        </div>
+      </section>
+
+      <section class="portfolio-section reveal-item">
+        <h2 class="section-title">
+          <span class="code-accent">&gt;</span> Projects
+        </h2>
+        <div class="projects-grid">
+          @for (project of resumeData.projects; track project.title) {
+            <div class="project-card">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-tech">{{ project.tech }}</p>
+              <ul class="bullet-list project-bullets">
+                @for (bullet of project.bullets; track bullet) {
+                  <li>{{ bullet }}</li>
+                }
+              </ul>
             </div>
-            <ul
-              style="
-                padding-left: 1.2rem;
-                font-size: 0.95rem;
-                line-height: 1.6;
-                opacity: 0.9;
-              "
-            >
-              @for (bullet of exp.bullets; track bullet) {
-                <li style="margin-bottom: 0.5rem">{{ bullet }}</li>
-              }
-            </ul>
-          </li>
-        }
-      </ul>
-    </section>
+          }
+        </div>
+      </section>
 
-    <section style="margin-bottom: 3.5rem">
-      <h2
-        style="
-          color: #c4b5fd;
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-          border-left: 3px solid #c4b5fd;
-          padding-left: 1rem;
-        "
-      >
-        > Projects
-      </h2>
-      <ul style="list-style: none; padding: 0">
-        @for (project of resumeData.projects; track project.title) {
-          <li style="margin-bottom: 2rem">
-            <h3 style="margin: 0; color: #fff; font-size: 1.2rem">
-              {{ project.title }}
-            </h3>
-            <p
-              style="
-                margin: 0.3rem 0 0.8rem 0;
-                font-size: 0.9rem;
-                color: #96e6ff;
-              "
-            >
-              {{ project.tech }}
-            </p>
-            <ul
-              style="
-                padding-left: 1.2rem;
-                font-size: 0.95rem;
-                line-height: 1.6;
-                opacity: 0.9;
-              "
-            >
-              @for (bullet of project.bullets; track bullet) {
-                <li style="margin-bottom: 0.5rem">{{ bullet }}</li>
-              }
-            </ul>
-          </li>
-        }
-      </ul>
-    </section>
-
-    <section>
-      <h2
-        style="
-          color: #c4b5fd;
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-          border-left: 3px solid #c4b5fd;
-          padding-left: 1rem;
-        "
-      >
-        > Awards
-      </h2>
-      <ul
-        style="
-          list-style: none;
-          padding: 0;
-          font-size: 0.95rem;
-          line-height: 1.6;
-          opacity: 0.95;
-        "
-      >
-        @for (award of resumeData.awards; track award.description) {
-          <li style="margin-bottom: 0.8rem">
-            [+] <strong>{{ award.category }}:</strong> {{ award.description }}
-          </li>
-        }
-      </ul>
-    </section>
+      <section class="portfolio-section reveal-item">
+        <h2 class="section-title">
+          <span class="code-accent">&gt;</span> Awards
+        </h2>
+        <ul class="awards-list">
+          @for (award of resumeData.awards; track award.description) {
+            <li class="award-item">
+              <span class="code-accent">[+]</span>
+              <span class="award-category">{{ award.category }}:</span>
+              <span class="award-desc">{{ award.description }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+    </div>
   </div>
 </div>

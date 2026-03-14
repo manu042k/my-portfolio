@@ -1,0 +1,418 @@
+// --- Variables & Theme ---
+$color-bg-base: #05050a;
+$color-text-main: #f8fafc;
+$color-text-muted: #94a3b8;
+$color-accent-primary: #96e6ff; // Cyan
+$color-accent-secondary: #c4b5fd; // Soft Purple
+$color-glass: rgba(5, 10, 20, 0.45);
+$color-glass-border: rgba(150, 230, 255, 0.15);
+
+$font-main: "Inter", sans-serif;
+$font-code: "Fira Code", monospace;
+
+// --- Base Styles ---
+.portfolio-wrapper {
+  font-family: $font-main;
+  color: $color-text-main;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: $color-bg-base;
+}
+
+.background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; // Behind content
+}
+
+// --- Layout & Glassmorphism ---
+.content-container {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  min-height: 100vh;
+
+  // The frosted glass effect
+  background: $color-glass;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-left: 1px solid $color-glass-border;
+  border-right: 1px solid $color-glass-border;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+    border: none;
+  }
+}
+
+// --- Typography Accents ---
+.code-accent {
+  font-family: $font-code;
+  color: $color-accent-secondary;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolio-section:hover .code-accent,
+.award-item:hover .code-accent {
+  transform: rotateY(360deg);
+}
+
+.accent-divider {
+  color: rgba(255, 255, 255, 0.2);
+  margin: 0 0.5rem;
+}
+
+// --- Header / Hero ---
+.hero-section {
+  margin-bottom: 5rem;
+  border-bottom: 1px solid $color-glass-border;
+  padding-bottom: 2.5rem;
+}
+
+.typewriter-container {
+  display: inline-block;
+  overflow: hidden; /* Ensures the text is not revealed until the animation */
+  border-right: 0.05em solid $color-accent-primary; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation:
+    typing 2s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+
+  /* Shimmering Gradient Setup */
+  background: linear-gradient(
+    270deg,
+    #ffffff 0%,
+    $color-accent-primary 50%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Continuous Pan Animation */
+  animation: shine 4s linear infinite;
+}
+
+/* Typing keyframes */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Cursor blink keyframes */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: $color-accent-primary;
+  }
+}
+
+/* Gradient shimmer keyframes */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+// --- Interactive 3D Spin Letters ---
+.spin-letter {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+  white-space: pre; // Ensure spaces are preserved
+}
+
+.hero-title:hover .spin-letter {
+  animation: waveSpin 0.8s forwards;
+  animation-delay: calc(var(--char-index) * 0.05s);
+}
+
+@keyframes waveSpin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: $color-text-muted;
+  line-height: 1.8;
+  font-weight: 400;
+  margin: 0;
+}
+
+.hero-link {
+  color: $color-text-muted;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    color: $color-accent-secondary;
+    border-bottom: 1px solid $color-accent-secondary;
+  }
+}
+
+// --- Sections ---
+.portfolio-section {
+  margin-bottom: 4.5rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $color-text-main;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+// --- Generic Item Styling (Education, Experience) ---
+.resume-item,
+.timeline-item {
+  margin-bottom: 2.5rem;
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateX(4px);
+  }
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.item-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.item-location {
+  color: $color-accent-primary;
+  font-size: 0.9rem;
+  font-family: $font-code;
+}
+
+.resume-subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.item-role {
+  margin: 0;
+  font-size: 1.1rem;
+  color: $color-accent-secondary;
+  font-weight: 500;
+}
+
+.item-dates {
+  color: $color-text-muted;
+  font-size: 0.9rem;
+  font-family: $font-code;
+}
+
+.item-desc {
+  margin: 0.5rem 0 0 0;
+  color: $color-text-muted;
+  line-height: 1.6;
+}
+
+.bullet-list {
+  padding-left: 1.25rem;
+  color: $color-text-muted;
+  line-height: 1.7;
+
+  li {
+    margin-bottom: 0.6rem;
+    position: relative;
+
+    &::marker {
+      color: $color-accent-secondary;
+    }
+  }
+}
+
+// --- Skills Grid ---
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(150, 230, 255, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.skill-label {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: $color-text-main;
+  font-weight: 600;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag {
+  background: rgba(150, 230, 255, 0.1);
+  color: $color-accent-primary;
+  font-family: $font-code;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(150, 230, 255, 0.2);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(150, 230, 255, 0.2);
+    transform: translateY(-1px);
+  }
+}
+
+.skill-text {
+  margin: 0;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+// --- Projects Grid ---
+.projects-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(196, 181, 253, 0.3); // Secondary color border on hover
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.35rem;
+  color: $color-text-main;
+  font-weight: 600;
+}
+
+.project-tech {
+  font-family: $font-code;
+  font-size: 0.85rem;
+  color: $color-accent-primary;
+  margin: 0.8rem 0 1.2rem 0;
+}
+
+// --- Awards ---
+.awards-list {
+  list-style: none;
+  padding: 0;
+}
+
+.award-item {
+  margin-bottom: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.award-category {
+  font-weight: 600;
+  color: $color-text-main;
+  margin-right: 0.5rem;
+}
+
+.award-desc {
+  color: $color-text-muted;
+}
+
+// --- Animations ---
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-item {
+  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; // Starts invisible
+}
+
+// Stagger the animations based on DOM order for a cool load-in effect
+@for $i from 1 through 10 {
+  .reveal-item:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.15}s;
+  }
+}

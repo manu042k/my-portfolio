@@ -99,15 +99,17 @@ export class OrganismBgComponent implements OnInit, OnDestroy {
         const sharpThrust = p.pow(thrust, 4); // Peak isolated for burst
         const relax = p.pow(p.max(0, -p.sin(pulsePhase)), 1.5); // 0 to 1
 
-        // Position: Drifts slowly around the center, bobs upward strongly on thrust, sinks on relax
-        const driftX = p.sin(time * 0.5) * (p.width * 0.1);
+        // Position: Drifts slowly from left to right, wrapping around the screen. Also bobs up and down rhythmically.
+        // We use modular arithmetic so it loops smoothly off the right edge and reappears on the left.
+        const speed = 1.2; 
+        const driftX = ((p.frameCount * speed) % (p.width + 400)) - 200; // start 200px offscreen left
         const bobY = -sharpThrust * 80 + relax * 40 + p.cos(time * 0.4) * 50;
         
-        const jx = p.width / 2 + driftX;
+        const jx = driftX;
         const jy = p.height / 2 + bobY - 50; // offset slightly high for tentacles
 
-        // The slight tilt of the jellyfish finding its balance
-        const tilt = p.sin(time * 0.3) * 0.15;
+        // The slight tilt of the jellyfish finding its balance, angled slightly right since it's swimming that way
+        const tilt = p.sin(time * 0.3) * 0.15 + 0.15; // Added +0.15 base rotation to tilt it forward
 
         p.translate(jx, jy);
         p.rotate(tilt);
