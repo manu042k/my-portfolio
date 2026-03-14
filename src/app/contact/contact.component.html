@@ -1,0 +1,59 @@
+<div id="contact" class="contact-section">
+  <!-- Animated Background -->
+  <div class="background-animation">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-text">Let's Connect</span>
+        <span class="title-underline"></span>
+      </h2>
+      <p class="section-subtitle">
+        Feel free to reach out for collaborations, opportunities, or just a
+        friendly chat!
+      </p>
+    </div>
+
+    <div class="contact-bento">
+      <!-- Contact Method Cards -->
+      <div
+        *ngFor="let method of contactMethods; let i = index"
+        class="bento-item contact-card"
+        [style.animation-delay]="i * 0.1 + 's'"
+      >
+        <div class="card-background" [style.background]="method.color"></div>
+        <div class="card-content">
+          <div class="icon-wrapper">
+            <i [class]="method.icon"></i>
+          </div>
+          <div class="card-info">
+            <span class="card-label">{{ method.label }}</span>
+            <span class="card-description">{{ method.description }}</span>
+            <a
+              *ngIf="method.link"
+              [href]="method.link"
+              [target]="method.link.startsWith('http') ? '_blank' : '_self'"
+              [rel]="
+                method.link.startsWith('http') ? 'noopener noreferrer' : ''
+              "
+              class="card-value"
+            >
+              {{ method.value }}
+              <i
+                class="fas fa-external-link-alt"
+                *ngIf="method.link.startsWith('http')"
+              ></i>
+            </a>
+            <span *ngIf="!method.link" class="card-value">{{
+              method.value
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
