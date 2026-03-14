@@ -1,48 +1,36 @@
-# Portfolio
+# Manoj Manjunatha - Portfolio
 
-A personal portfolio website built with Angular.
+A personal portfolio website built with Angular, featuring a modern, highly interactive design. 
 
 ## About
 
-This portfolio showcases my skills, projects, awards, and contact information. The site features a modern, responsive design with smooth animations and interactive elements to provide an engaging user experience.
+This portfolio showcases my professional experience, projects, skills, and education. The site features a continuous frame-by-frame scroll hero animation and a dynamic WebGL Physarum (slime mold) simulation as a background, creating a deeply engaging and unique user experience.
 
 ## Features
 
-- Responsive design that works on all devices
-- Dynamic typing animations for text displays
-- Interactive skills section with animated icons
-- Project gallery with detailed descriptions
-- Awards and recognition section
-- Contact form for easy communication
-- Dark mode toggle for user preference
-- Smooth scrolling navigation
-- Custom directives for enhanced interactivity
+- **WebGL Physarum Simulation:** An interactive, living background built with WebGL and customized shaders.
+- **Hero Scroll Animation:** A high-performance, canvas-based frame-by-frame scroll animation synced to the user's scroll position, inspired by Apple's product pages.
+- **Single-Page Resume Overlay:** Clean, responsive overlay displaying experience, projects, education, and skills over the background.
+- **Modern Angular Architecture:** Built with the latest Angular version using standalone components and signals.
+- **Responsive Design:** Optimized for both desktop and mobile viewing, including responsive contact icons.
 
 ## Tech Stack
 
-- Angular - Frontend framework
-- TypeScript - Programming language
-- SCSS - Styling and animations
-- Angular SSR - Server-side rendering
-- RxJS - Reactive programming
+- **Angular (Standalone Components)** - Frontend framework
+- **TypeScript** - Programming language
+- **SCSS** - Styling, variables, and CSS-based parallax
+- **WebGL / HTML5 Canvas** - High-performance graphics and animations
+- **Node.js & npm** - Dependency management and build tools
 
 ## Project Structure
 
-```
+```text
 src/app/
-├── awards/           # Awards and recognition component
-├── contact/          # Contact form component
-├── directive/        # Custom directives (typing animations)
-├── footer/           # Footer component
-├── home/             # Home page component
-├── icon-cloud/       # Animated icon cloud component
-├── navbar/           # Navigation bar component
-├── project-section/  # Projects showcase component
-├── service/          # Services (navigation, etc.)
-├── shared/           # Shared components and utilities
-├── skills-section/   # Skills display component
-├── theme-toggle/     # Dark/light mode toggle
-└── timeline/         # Timeline component
+├── components/
+│   └── organism-bg/    # WebGL Physarum simulation background component
+├── app.component.html  # Main layout, resume content, and scroll animation overlay
+├── app.component.scss  # Global and component styles
+└── app.component.ts    # Main component logic and resume data source
 ```
 
 ## Getting Started
@@ -71,9 +59,9 @@ Run the development server:
 npm start
 ```
 
-The application will open at http://localhost:4200
+The application will open at `http://localhost:4200`
 
-## Build
+## Build & Optimization
 
 Build the project for production:
 
@@ -83,25 +71,6 @@ npm run build
 
 The build artifacts will be stored in the `dist/` directory.
 
-## Testing
-
-Run unit tests:
-
-```bash
-npm test
-```
-
-## Development
-
-This project uses Angular's component-based architecture. Each section of the portfolio is built as a standalone component for better maintainability and reusability.
-
-Key components include:
-
-- Navigation service for smooth scrolling between sections
-- Custom typing directive for animated text effects
-- Theme toggle service for dark/light mode persistence
-- Responsive design using SCSS mixins and variables
-
 ## Live Demo
 
-https://manu042k.tech
+[https://manu042k.tech](https://manu042k.tech)
