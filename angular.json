@@ -32,9 +32,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/TagCloud/dist/TagCloud.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -94,9 +92,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/TagCloud/dist/TagCloud.min.js"
-            ]
+            "scripts": []
           }
         }
       }
