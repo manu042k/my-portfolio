@@ -482,6 +482,136 @@ $font-code: "Fira Code", monospace;
   color: $color-text-muted;
 }
 
+// Live badge
+.live-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-code;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #27c93f;
+  background: rgba(39, 201, 63, 0.12);
+  border: 1px solid rgba(39, 201, 63, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #27c93f;
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+// ---- Preview Area ----
+.preview-area {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+// Screenshot preview
+.preview-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+// Skeleton shimmer (shown while iframe loads)
+.preview-skeleton {
+  position: absolute;
+  inset: 0;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: rgba(5, 10, 20, 0.6);
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton-bar,
+.skeleton-rect {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(150, 230, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton-bar {
+  height: 10px;
+  &.wide   { width: 75%; }
+  &.medium { width: 55%; }
+  &.narrow { width: 40%; }
+}
+
+.skeleton-rect {
+  height: 60px;
+  width: 90%;
+  margin-top: 0.25rem;
+}
+
+// Code block fallback
+.preview-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  font-family: $font-code;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.fallback-code {
+  &.indent {
+    padding-left: 1.5rem;
+  }
+}
+
+.fc-keyword { color: #c4b5fd; }
+.fc-var     { color: #96e6ff; }
+.fc-op      { color: #94a3b8; }
+.fc-brace   { color: #f8fafc; }
+.fc-key     { color: #86efac; }
+.fc-string  { color: #fda4af; }
+
+.fallback-cursor {
+  color: $color-accent-primary;
+  animation: blink-caret 0.9s step-end infinite;
+  margin-top: 0.2rem;
+}
+
 .project-title {
   margin: 0;
   font-size: 1.35rem;
@@ -494,6 +624,57 @@ $font-code: "Fira Code", monospace;
   font-size: 0.85rem;
   color: $color-accent-primary;
   margin: 0.8rem 0 1.2rem 0;
+}
+
+// ---- Action Buttons ----
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 2rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  z-index: 1;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-family: $font-code;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &.primary {
+    background: rgba(150, 230, 255, 0.12);
+    color: $color-accent-primary;
+    border: 1px solid rgba(150, 230, 255, 0.3);
+
+    &:hover {
+      background: rgba(150, 230, 255, 0.22);
+      border-color: rgba(150, 230, 255, 0.6);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(150, 230, 255, 0.15);
+    }
+  }
+
+  &.secondary {
+    background: rgba(196, 181, 253, 0.1);
+    color: $color-accent-secondary;
+    border: 1px solid rgba(196, 181, 253, 0.25);
+
+    &:hover {
+      background: rgba(196, 181, 253, 0.2);
+      border-color: rgba(196, 181, 253, 0.55);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(196, 181, 253, 0.12);
+    }
+  }
 }
 
 // --- Awards ---

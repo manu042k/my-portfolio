@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { OrganismBgComponent } from './components/organism-bg/organism-bg.component';
 
@@ -12,6 +12,18 @@ import { OrganismBgComponent } from './components/organism-bg/organism-bg.compon
 })
 export class AppComponent {
   title = 'Portfolio';
+
+  // Track which iframe previews have loaded
+  previewLoaded: Record<string, boolean> = {};
+
+  onPreviewLoad(projectTitle: string) {
+    this.previewLoaded[projectTitle] = true;
+  }
+
+  /** Build a WordPress mShots screenshot URL — free, no API key needed */
+  getScreenshotUrl(url: string): string {
+    return `https://s0.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=900&h=500`;
+  }
 
   // Calculate mouse position relative to a project card for the glow effect
   onCardMouseMove(event: MouseEvent) {
@@ -95,6 +107,8 @@ export class AppComponent {
       {
         title: 'AgileBot - Smart Project-Management Platform',
         tech: 'Django, Celery, Next.js, Shadcn, OAuth, Tailwind, WebSockets',
+        link: 'https://agile-bot-xtwo.vercel.app',
+        github: 'https://github.com/manu042k/Agile-bot',
         bullets: [
           'Built a SaaS platform converting requirement documents into structured user stories using Agentic LLM pipelines and semantic-search embeddings for accurate, context-aware outputs.',
           'Implemented agile workflow features, capacity-based task allocation and sprint planning, reducing manual effort by 40%.',
@@ -103,6 +117,8 @@ export class AppComponent {
       {
         title: 'CodeGuard - AI Static Code Analysis Platform',
         tech: 'Next.js, FastAPI, PostgreSQL, Docker, LangGraph, PyGithub',
+        link: '',
+        github: 'https://github.com/manu042k/CodeGuard',
         bullets: [
           'Developed a multi-agent static code analysis platform to evaluate security, code quality, architecture, and documentation across GitHub repositories.',
           'Automated reporting by executing code in isolated containers, ensuring safe, scalable, and reliable static analysis.',
@@ -111,6 +127,8 @@ export class AppComponent {
       {
         title: 'VisionX.ai - Visual Information Retriever',
         tech: 'LangChain, LangGraph, FastAPI, Angular, NGRX, vLLM',
+        link: '',
+        github: 'https://github.com/manu042k/VisionX',
         bullets: [
           'Built a multi-modal chat platform enabling users to upload images, annotate with bounding boxes, and query specific regions using AI-powered visual information retrieval.',
           'Developed a responsive agent-driven interface handling follow-up queries and providing contextually relevant internet-sourced information, improving interactive data exploration.',
