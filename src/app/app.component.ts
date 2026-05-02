@@ -125,9 +125,19 @@ export class AppComponent {
         ],
       },
       {
+        title: 'Chain Reaction - Online Multiplayer Game',
+        tech: 'Next.js 15, TypeScript, Socket.IO, MongoDB, WebRTC, NextAuth, Zustand',
+        link: 'https://chain-reaction-tau.vercel.app',
+        github: 'https://github.com/manu042k/chain-reaction',
+        bullets: [
+          'Built a real-time multiplayer Chain Reaction board game supporting up to 4 players with room-based matchmaking, unique room codes, and Socket.IO for lag-free game state synchronization.',
+          'Integrated peer-to-peer voice chat via WebRTC/PeerJS, Google OAuth authentication, and MongoDB-backed game state persistence with player reconnection support.',
+        ],
+      },
+      {
         title: 'VisionX.ai - Visual Information Retriever',
         tech: 'LangChain, LangGraph, FastAPI, Angular, NGRX, vLLM',
-        link: '',
+        link: 'https://annot-a-ix-v5yz.vercel.app',
         github: 'https://github.com/manu042k/VisionX',
         bullets: [
           'Built a multi-modal chat platform enabling users to upload images, annotate with bounding boxes, and query specific regions using AI-powered visual information retrieval.',
