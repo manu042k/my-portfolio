@@ -154,7 +154,7 @@
               }
             </div>
           </div>
-          <div class="skill-category" style="grid-column: 1 / -1">
+          <div class="skill-category">
             <h4 class="skill-label">Developer Tools</h4>
             <div class="skill-tags">
               @for (tool of resumeData.skills.tools.split(","); track tool) {
@@ -162,14 +162,11 @@
               }
             </div>
           </div>
-          <div class="skill-category" style="grid-column: 1 / -1">
-            <h4 class="skill-label">Architecture / Methodologies</h4>
+          <div class="skill-category">
+            <h4 class="skill-label">AI / LLM Tools</h4>
             <div class="skill-tags">
-              @for (
-                arch of resumeData.skills.architecture.split(",");
-                track arch
-              ) {
-                <span class="tag">{{ arch.trim().replace(".", "") }}</span>
+              @for (tool of resumeData.skills.ai.split(','); track tool) {
+                <span class="tag">{{ tool.trim() }}</span>
               }
             </div>
           </div>
