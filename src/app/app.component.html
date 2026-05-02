@@ -211,85 +211,72 @@
         <div class="projects-grid">
           @for (project of resumeData.projects; track project.title) {
             <div class="project-card" (mousemove)="onCardMouseMove($event)">
-              <!-- Terminal chrome -->
-              <div class="terminal-header">
-                <div class="term-dots">
-                  <span class="term-dot close"></span>
-                  <span class="term-dot min"></span>
-                  <span class="term-dot max"></span>
-                </div>
-                <div class="term-title">
-                  bash — {{ project.title.split(" ")[0].toLowerCase() }}
-                </div>
-                @if (project.link) {
-                  <span class="live-badge">
-                    <span class="live-dot"></span>LIVE
-                  </span>
-                }
-              </div>
+              <!-- Apple Monitor Display -->
+              <div class="monitor-wrapper">
+                <div class="monitor-bezel">
+                  <div class="monitor-screen">
+                    <!-- Status Badge Overlay -->
+                    <div class="status-overlay">
+                      @if (project.link) {
+                        <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+                      } @else {
+                        <span class="dev-badge">DEV</span>
+                      }
+                    </div>
 
-              <!-- Preview Area -->
-              <div class="preview-area">
-                @if (project.link) {
-                  <!-- Skeleton shimmer shown until screenshot loads -->
-                  @if (!previewLoaded[project.title]) {
-                    <div class="preview-skeleton">
-                      <div class="skeleton-bar wide"></div>
-                      <div class="skeleton-bar medium"></div>
-                      <div class="skeleton-bar narrow"></div>
-                      <div class="skeleton-rect"></div>
-                    </div>
-                  }
-                  <img
-                    class="preview-screenshot"
-                    [class.loaded]="previewLoaded[project.title]"
-                    [src]="getScreenshotUrl(project.link)"
-                    loading="lazy"
-                    (load)="onPreviewLoad(project.title)"
-                    (error)="onPreviewLoad(project.title)"
-                    alt="{{ project.title }} preview"
-                  />
-                } @else {
-                  <!-- Code block fallback -->
-                  <div class="preview-fallback">
-                    <div class="fallback-code">
-                      <span class="fc-keyword">const</span>
-                      <span class="fc-var"> project</span>
-                      <span class="fc-op"> = </span>
-                      <span class="fc-brace">&#123;</span>
-                    </div>
-                    <div class="fallback-code indent">
-                      <span class="fc-key">name</span>
-                      <span class="fc-op">: </span>
-                      <span class="fc-string">"{{ project.title.split(' ')[0] }}"</span><span class="fc-op">,</span>
-                    </div>
-                    <div class="fallback-code indent">
-                      <span class="fc-key">stack</span>
-                      <span class="fc-op">: </span>
-                      <span class="fc-string">"{{ project.tech.split(',')[0].trim() }}"</span><span class="fc-op">,</span>
-                    </div>
-                    <div class="fallback-code indent">
-                      <span class="fc-key">status</span>
-                      <span class="fc-op">: </span>
-                      <span class="fc-string">"in-progress"</span>
-                    </div>
-                    <div class="fallback-code">
-                      <span class="fc-brace">&#125;</span>
-                    </div>
-                    <div class="fallback-cursor">_</div>
+                    @if (project.link) {
+                      @if (!previewLoaded[project.title]) {
+                        <div class="preview-skeleton">
+                          <div class="skeleton-bar wide"></div>
+                          <div class="skeleton-rect"></div>
+                        </div>
+                      }
+                      <img
+                        class="preview-screenshot"
+                        [class.loaded]="previewLoaded[project.title]"
+                        [src]="getScreenshotUrl(project.link)"
+                        loading="lazy"
+                        (load)="onPreviewLoad(project.title)"
+                        (error)="onPreviewLoad(project.title)"
+                        alt="{{ project.title }} preview"
+                      />
+                    } @else {
+                      <div class="preview-fallback">
+                        <div class="fallback-code">
+                          <span class="fc-keyword">const</span>
+                          <span class="fc-var"> status</span>
+                          <span class="fc-op"> = </span>
+                          <span class="fc-string">"dev"</span>
+                        </div>
+                        <div class="fallback-cursor">_</div>
+                      </div>
+                    }
                   </div>
-                }
+                  <div class="monitor-logo"></div>
+                </div>
+                <div class="monitor-stand"></div>
               </div>
 
               <!-- Card Body -->
               <div class="project-content">
                 <h3 class="project-title">{{ project.title }}</h3>
-                <p class="project-tech">{{ project.tech }}</p>
+                <div class="tech-chips">
+                  @for (t of project.tech.split(','); track t) {
+                    <span class="tech-chip">{{ t.trim() }}</span>
+                  }
+                </div>
                 <ul class="bullet-list project-bullets">
-                  @for (bullet of project.bullets; track bullet) {
+                  @for (bullet of (expandedProjects[project.title] ? project.bullets : project.bullets.slice(0, 1)); track bullet) {
                     <li>{{ bullet }}</li>
                   }
                 </ul>
+                
+                @if (project.bullets.length > 1) {
+                  <button class="view-more-btn" (click)="toggleProject(project.title)">
+                    {{ expandedProjects[project.title] ? 'View Less' : 'View More' }}
+                    <svg [class.rotated]="expandedProjects[project.title]" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                }
               </div>
 
               <!-- Action footer -->

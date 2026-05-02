@@ -15,14 +15,29 @@ export class AppComponent {
 
   // Track which iframe previews have loaded
   previewLoaded: Record<string, boolean> = {};
+  // Track which projects are expanded to show full content
+  expandedProjects: Record<string, boolean> = {};
 
   onPreviewLoad(projectTitle: string) {
     this.previewLoaded[projectTitle] = true;
   }
 
-  /** Build a WordPress mShots screenshot URL — free, no API key needed */
+  toggleProject(projectTitle: string) {
+    this.expandedProjects[projectTitle] = !this.expandedProjects[projectTitle];
+  }
+
+  /** Extract hostname for the browser bar */
+  getHost(url: string): string {
+    try {
+      return new URL(url).hostname.replace('www.', '');
+    } catch {
+      return url;
+    }
+  }
+
+  /** Build a WordPress mShots screenshot URL — 1440x900 for desktop feel */
   getScreenshotUrl(url: string): string {
-    return `https://s0.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=900&h=500`;
+    return `https://s0.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1440&h=900`;
   }
 
   // Calculate mouse position relative to a project card for the glow effect
@@ -143,6 +158,18 @@ export class AppComponent {
           'Built a multi-modal chat platform enabling users to upload images, annotate with bounding boxes, and query specific regions using AI-powered visual information retrieval.',
           'Developed a responsive agent-driven interface handling follow-up queries and providing contextually relevant internet-sourced information, improving interactive data exploration.',
         ],
+      },
+      {
+        title: 'TwinMind - AI Meeting Assistant',
+        tech: 'Next.js, Groq API, Whisper, Web Audio API, Tailwind CSS',
+        link: 'https://twin-mind-flame.vercel.app',
+        bullets: [
+          'Developed a real-time meeting assistant that captures microphone and tab audio for live transcription using Groq Whisper.',
+          'Implemented an intelligent suggestion engine that surfaces fact-checks and talking points during active conversations.',
+          'Built a citation-grounded chat interface for querying the meeting transcript with sub-second latency.',
+          'Engineered a dual-source audio pipeline using MediaRecorder and ScriptProcessor for synchronized VAD and flush logic.',
+        ],
+        github: 'https://github.com/manu042k/TwinMind',
       },
     ],
     awards: [
