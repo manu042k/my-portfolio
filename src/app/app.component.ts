@@ -131,7 +131,7 @@ export class AppComponent {
       {
         title: 'CodeGuard - AI Static Code Analysis Platform',
         tech: 'Multi-Agent Systems, LangGraph, FastAPI, Docker, PostgreSQL',
-        link: '',
+        link: 'https://code-gaurd-six.vercel.app',
         github: 'https://github.com/manu042k/CodeGuard',
         bullets: [
           'Developed a multi-agent static code analysis platform to evaluate security, code quality, architecture, and documentation across GitHub repositories.',
