@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, linkedSignal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { OrganismBgComponent } from './components/organism-bg/organism-bg.component';
 
@@ -84,6 +84,16 @@ export class AppComponent {
     },
     experience: [
       {
+        company: 'MarketEq Digital',
+        location: 'Remote, USA',
+        title: 'Software Engineer',
+        dates: 'Feb 2026 – Present',
+        bullets: [
+          'Reduced homepage load latency by 25% by building a full-stack homepage with Next.js, NestJS, and Payload CMS integrated through the existing API Gateway, improving response consistency across marketplace services.',
+          'Cut repeated backend calls by 40% and achieved sub-200ms content updates using an event-driven architecture with Redis caching and RabbitMQ event invalidation; implemented gRPC for inter-service communication with the user service.',
+        ],
+      },
+      {
         company: 'Micron Technology',
         location: 'Boise, ID, USA',
         title: 'System Software Engineer Intern',
@@ -118,6 +128,16 @@ export class AppComponent {
       },
     ],
     projects: [
+      {
+        title: 'Project Hawkeye - AI-Powered QA Platform',
+        tech: 'LangGraph, FastAPI, Next.js, Playwright MCP, Docker, Python',
+        link: 'https://project-hawkeye.vercel.app/',
+        github: 'https://github.com/manu042k/Project-Hawkeye',
+        bullets: [
+          'Eliminated test-script maintenance overhead by building an autonomous browser-testing platform with LangGraph and Playwright MCP that self-adapts to UI changes through multimodal reasoning over screenshots and accessibility trees, replacing brittle hand-maintained recorded scripts.',
+          'Implemented a Celery-backed task queue with WebSocket streaming for real-time test progress, supporting parallel browser execution and automated artifact generation including screenshots, DOM diffs, and trace logs.',
+        ],
+      },
       {
         title: 'AgileBot - Smart Project-Management Platform',
         tech: 'Agentic AI, Django, Celery, Next.js, Shadcn, WebSockets',
