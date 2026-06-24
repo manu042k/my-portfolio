@@ -91,6 +91,8 @@ export class AppComponent {
         bullets: [
           'Reduced homepage load latency by 25% by building a full-stack homepage with Next.js, NestJS, and Payload CMS integrated through the existing API Gateway, improving response consistency across marketplace services.',
           'Cut repeated backend calls by 40% and achieved sub-200ms content updates using an event-driven architecture with Redis caching and RabbitMQ event invalidation; implemented gRPC for inter-service communication with the user service.',
+          'Built an end-to-end content automation pipeline in n8n integrating Groq (gpt-oss-120b) and Pexels API to auto-generate listing titles, descriptions, FAQs, and images at scale, replacing 100% of manual content workflows across the marketplace.',
+          'Engineered fault-tolerant retry logic reusing upstream node data on LLM correction, and delivered production-ready Next.js image integration (CDN authorization, taxonomy normalization, secure credential injection) with zero hardcoded secrets.',
         ],
       },
       {
@@ -139,13 +141,15 @@ export class AppComponent {
         ],
       },
       {
-        title: 'AgileBot - Smart Project-Management Platform',
-        tech: 'Agentic AI, Django, Celery, Next.js, Shadcn, WebSockets',
-        link: 'https://agile-bot-xtwo.vercel.app',
-        github: 'https://github.com/manu042k/Agile-bot',
+        title: 'SWOT Prompt Explorer',
+        tech: 'Next.js, LangGraph, ReactFlow, LangChain, OpenAI, Claude, Groq, Tailwind CSS',
+        link: 'https://swot-prompt-explorer.vercel.app/',
+        github: 'https://github.com/manu042k/SWOTPromptExplorer',
         bullets: [
-          'Built a SaaS platform converting requirement documents into structured user stories using Agentic LLM pipelines and semantic-search embeddings for accurate, context-aware outputs.',
-          'Implemented agile workflow features, capacity-based task allocation and sprint planning, reducing manual effort by 40%.',
+          'Replaced static SWOT templates with a two-phase plan→execute pipeline where an LLM dynamically designs a custom 6–10 node analysis DAG per customer segment at runtime, then executes all nodes in parallel via LangGraph.',
+          'Fired 8 parallel regional persona agents that score market fit across continents, grounded in the actual DAG insight content, and rendered results as interactive radial progress rings on a zoomable world map with custom region support.',
+          'Built a chat-driven graph augmentation loop where user questions generate new insight nodes appended to the live DAG and executed immediately, plus a side-by-side provider comparison panel for evaluating the same analysis across OpenAI, Claude, Groq, and OpenRouter.',
+          'Engineered a nested resizable three-panel layout using ReactFlow with dagre auto-layout, position-preserving session updates, and session-scoped API key management via sessionStorage to support multi-provider switching without page reloads.',
         ],
       },
       {
@@ -159,16 +163,6 @@ export class AppComponent {
         ],
       },
       {
-        title: 'Chain Reaction - Online Multiplayer Game',
-        tech: 'Next.js 15, TypeScript, Socket.IO, MongoDB, WebRTC, NextAuth, Zustand',
-        link: 'https://chain-reaction-tau.vercel.app',
-        github: 'https://github.com/manu042k/ChainReaction',
-        bullets: [
-          'Built a real-time multiplayer Chain Reaction board game supporting up to 4 players with room-based matchmaking, unique room codes, and Socket.IO for lag-free game state synchronization.',
-          'Integrated peer-to-peer voice chat via WebRTC/PeerJS, Google OAuth authentication, and MongoDB-backed game state persistence with player reconnection support.',
-        ],
-      },
-      {
         title: 'VisionX.ai - Visual Information Retriever',
         tech: 'Agentic RAG, LangChain, LangGraph, FastAPI, Angular, vLLM',
         link: 'https://annot-a-ix-v5yz.vercel.app',
@@ -176,6 +170,26 @@ export class AppComponent {
         bullets: [
           'Built a multi-modal chat platform enabling users to upload images, annotate with bounding boxes, and query specific regions using AI-powered visual information retrieval.',
           'Developed a responsive agent-driven interface handling follow-up queries and providing contextually relevant internet-sourced information, improving interactive data exploration.',
+        ],
+      },
+      {
+        title: 'AgileBot - Smart Project-Management Platform',
+        tech: 'Agentic AI, Django, Celery, Next.js, Shadcn, WebSockets',
+        link: 'https://agile-bot-xtwo.vercel.app',
+        github: 'https://github.com/manu042k/Agile-bot',
+        bullets: [
+          'Built a SaaS platform converting requirement documents into structured user stories using Agentic LLM pipelines and semantic-search embeddings for accurate, context-aware outputs.',
+          'Implemented agile workflow features, capacity-based task allocation and sprint planning, reducing manual effort by 40%.',
+        ],
+      },
+      {
+        title: 'Chain Reaction - Online Multiplayer Game',
+        tech: 'Next.js 15, TypeScript, Socket.IO, MongoDB, WebRTC, NextAuth, Zustand',
+        link: 'https://chain-reaction-tau.vercel.app',
+        github: 'https://github.com/manu042k/ChainReaction',
+        bullets: [
+          'Built a real-time multiplayer Chain Reaction board game supporting up to 4 players with room-based matchmaking, unique room codes, and Socket.IO for lag-free game state synchronization.',
+          'Integrated peer-to-peer voice chat via WebRTC/PeerJS, Google OAuth authentication, and MongoDB-backed game state persistence with player reconnection support.',
         ],
       },
       {
