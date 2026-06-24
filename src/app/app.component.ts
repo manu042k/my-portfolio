@@ -69,8 +69,8 @@ export class AppComponent {
       {
         institution: 'University of California, Riverside',
         location: 'Riverside, CA, USA',
-        degree: 'Master’s in Computer Engineering',
-        dates: 'Sep 2024 – Dec 2025',
+        degree: "Master’s in Computer Engineering",
+        dates: "Sep 2024 – Dec 2025",
       },
     ],
     skills: {
