@@ -54,7 +54,7 @@ export class AppComponent {
     personalInfo: {
       name: 'Manoj Manjunatha',
       title: 'Software Engineer',
-      location: 'Riverside, CA, USA',
+      location: 'USA',
       phone: '951-801-9745',
       email: 'mmanj008@ucr.edu',
       linkedin: 'https://linkedin.com/in/manojm042k/',
@@ -71,7 +71,6 @@ export class AppComponent {
         location: 'Riverside, CA, USA',
         degree: 'Master’s in Computer Engineering',
         dates: 'Sep 2024 – Dec 2025',
-        gpa: '3.63/4',
       },
     ],
     skills: {
