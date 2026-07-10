@@ -69,8 +69,8 @@ export class AppComponent {
       {
         institution: 'University of California, Riverside',
         location: 'Riverside, CA, USA',
-        degree: "Master’s in Computer Engineering",
-        dates: "Sep 2024 – Dec 2025",
+        degree: 'Master’s in Computer Engineering',
+        dates: 'Sep 2024 – Dec 2025',
       },
     ],
     skills: {
@@ -88,10 +88,9 @@ export class AppComponent {
         title: 'Software Engineer',
         dates: 'Feb 2026 – Present',
         bullets: [
+          'Replaced 100% of manual content workflows by shipping a LangChain + LangGraph ReAct agent pipeline (gpt-oss-120b) that auto-generates marketplace content assets with fault-tolerant retry logic enforcing data validation and constraint compliance.',
           'Reduced homepage load latency by 25% by building a full-stack homepage with Next.js, NestJS, and Payload CMS integrated through the existing API Gateway, improving response consistency across marketplace services.',
           'Cut repeated backend calls by 40% and achieved sub-200ms content updates using an event-driven architecture with Redis caching and RabbitMQ event invalidation; implemented gRPC for inter-service communication with the user service.',
-          'Built an end-to-end content automation pipeline in n8n integrating Groq (gpt-oss-120b) and Pexels API to auto-generate listing titles, descriptions, FAQs, and images at scale, replacing 100% of manual content workflows across the marketplace.',
-          'Engineered fault-tolerant retry logic reusing upstream node data on LLM correction, and delivered production-ready Next.js image integration (CDN authorization, taxonomy normalization, secure credential injection) with zero hardcoded secrets.',
         ],
       },
       {
